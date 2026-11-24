@@ -23,6 +23,15 @@ Ce fichier est la consigne qu'exécute la tâche planifiée chaque matin (ou que
    - Les mauvaises réponses des QCM doivent être plausibles, et toujours dans le même domaine que la bonne.
    - Chaque exercice a une explication `x` courte, qui ajoute un élément de contexte utile pour un concours.
    - Échappe les apostrophes (`\'`) dans les chaînes entre apostrophes.
+5 bis. **Vidéos du fil (format Shorts)**
+   - Lance `powershell -ExecutionPolicy Bypass -File scripts\fetch-shorts.ps1`, puis lis `scripts/shorts-today.txt` (format : source | date | id | intégrable | titre).
+   - Choisis **8 à 12 Shorts**, uniquement avec `intégrable = oui`. Ils doivent couvrir l'actualité : politique, international, société, climat, médias, sciences.
+   - **Exclus** le divertissement, le lifestyle, le cinéma et les séries, les conseils santé ou cuisine, les bandes-annonces et l'autopromotion. Exclus aussi les extraits de débats d'opinion où un éditorialiste donne son avis (titres entre « … » attribués à un chroniqueur), et les faits divers sordides sans portée générale.
+   - **Varie les sources** : au moins 5 rédactions différentes, et 3 vidéos au maximum par rédaction.
+   - Quand une vidéo traite d'une info retenue dans `stories`, relie-la avec `story: <index dans stories>`. Vise au moins 4 vidéos reliées.
+   - Ajoute le tableau `shorts` dans le fichier du jour, comme dans `2026-11-24.js` : `{ id, source, title, tag, story? }`. Reprends le titre tel quel, en retirant seulement les suffixes du type « • FRANCE 24 ».
+   - Ne pose **aucune question de quiz sur le contenu d'une vidéo** : tu n'en connais que le titre.
+   - Si le script échoue, mets `shorts: []`. Le fil fonctionnera alors avec les cartes et les questions seulement.
 6. Ajoute l'édition **en tête** de `data/days/index.js` : `{ date: '<date>', title: '<title>', lessons: 3 }`.
 7. Vérifie que le fichier est du JavaScript valide (accolades, virgules, apostrophes échappées). Ouvre `index.html` si possible.
 

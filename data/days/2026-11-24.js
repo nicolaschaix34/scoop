@@ -90,6 +90,21 @@ window.SCOOP_DAYS['2026-11-24'] = {
       link: 'https://www.lemonde.fr/'
     }
   ],
+  // Vidéos courtes (YouTube Shorts de rédactions) ; "story" = index de l'info liée dans stories[]
+  shorts: [
+    { id: 'Kw9-raRpFLA', source: 'franceinfo', title: 'Peut-on décaler les dates de l\'élection présidentielle ?', tag: 'Politique', story: 1 },
+    { id: 'GM6cy-cmJa0', source: 'franceinfo', title: 'Thierry Breton plaide pour l\'encadrement légal de la dette', tag: 'Politique', story: 0 },
+    { id: 'q_40euQifz0', source: 'Brut', title: 'La COP31 vient de se terminer et c\'est un échec, on vous explique.', tag: 'Climat', story: 2 },
+    { id: 'ItuzQkICG_8', source: 'Le Monde', title: 'Volodymyr Zelensky revendique l\'attaque de deux bateaux russes en Libye', tag: 'Monde', story: 3 },
+    { id: '6tLYdyUmU5A', source: 'France 24', title: 'Jensen Huang de retour à la tête de Nvidia dans un volte-face inattendu', tag: 'Monde', story: 5 },
+    { id: 'zaclb-UXRD4', source: 'Libération', title: 'Comment agir face à CNews ?', tag: 'Médias', story: 7 },
+    { id: 'C5RKBc29LYE', source: 'France 24', title: 'Belgique : le pays en grève contre l\'austérité du gouvernement', tag: 'Europe', story: 8 },
+    { id: 'xFbs6lShoLo', source: 'euronews', title: 'Israël : Eisenkot convie le Likoud de Netanyahu à des négociations de coalition', tag: 'Monde' },
+    { id: 'aan2BVx7E8Q', source: 'franceinfo', title: 'Soudan : des enfants mis en danger par la malnutrition', tag: 'Monde' },
+    { id: 'AE1dJElrYfU', source: 'France Inter', title: 'Procès Zecler : les policiers qui l\'ont agressé « ont déshonoré leur badge »', tag: 'Justice' },
+    { id: 'IbYp44_1dng', source: 'RFI', title: 'États-Unis - Venezuela : coopération militaire ou mise sous tutelle ?', tag: 'Monde' },
+    { id: 'BYrd5ylHBOc', source: 'TV5MONDE Info', title: 'Bande de Gaza : un désastre sanitaire et environnemental', tag: 'Monde' }
+  ],
   memo: [
     'Une révision constitutionnelle passe par le **Congrès (3/5 des suffrages exprimés)** ou par un **référendum** (article 89).',
     'Présidentielle 2027 : premier tour le **18 avril**, second tour le **2 mai** (dates retenues par l\'exécutif, encore débattues).',

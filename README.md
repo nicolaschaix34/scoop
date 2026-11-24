@@ -13,6 +13,7 @@ La progression est enregistrée sur chaque appareil. Pour la transférer, utilis
 
 ## Ce qu'il y a dedans
 
+- **Le fil** 🎬 (`#/feed`) : un défilement vertical façon TikTok. Il alterne des **Shorts YouTube de rédactions** (franceinfo, Le Monde, France 24, AFP, Brut, RFI, euronews, TV5MONDE, Libération, Le Figaro, France Inter, Mediapart, HugoDécrypte), les cartes « l'essentiel à retenir » et des **questions flash** tirées du test du jour (+5 XP chacune). Tu peux garder 🔖 une info dans ta revue de presse perso, visible dans les Archives. Finir le fil rapporte un bonus d'XP.
 - **L'édition du jour** (`#/day`) : 8 à 10 infos résumées, chacune avec son lien vers un concours (« 🎯 Pour le concours »), un mot du jour, un mémo et **3 leçons** (France, monde, médias et écriture). Faire l'édition le jour même rapporte un bonus d'XP.
 - **Le parcours concours** : 7 unités et 20 leçons (institutions, Europe et monde, histoire des médias, déontologie et droit, écriture, langue française, économie et société). Chaque unité a sa **fiche de révision** 📖, et les leçons se débloquent dans l'ordre.
 - **6 types d'exercices** : QCM, vrai/faux, réponse libre, remise en ordre, association de paires et **atelier d'écriture** (titre, attaque, chapô, avec une proposition de la rédaction et une auto-évaluation).
@@ -24,6 +25,7 @@ La progression est enregistrée sur chaque appareil. Pour la transférer, utilis
 
 ```
 scripts/fetch-news.ps1     → récupère les flux RSS (Le Monde, franceinfo, France 24) dans news-today.txt
+scripts/fetch-shorts.ps1   → récupère les Shorts récents de 14 chaînes de rédactions dans shorts-today.txt
 scripts/DAILY_PROMPT.md    → consigne pour rédiger l'édition du jour à partir de ces titres
 data/days/AAAA-MM-JJ.js    → l'édition générée
 data/days/index.js         → la liste des éditions

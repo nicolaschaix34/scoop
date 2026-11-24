@@ -26,6 +26,7 @@
         <span class="logo-mark">S</span><span class="logo-text">scoop<span class="logo-dot">.</span></span>
       </a>
       <a class="nav-link" data-nav="home" href="#/home"><span class="ni">🏠</span><span>Parcours</span></a>
+      <a class="nav-link" data-nav="feed" href="#/feed"><span class="ni">🎬</span><span>Le fil</span></a>
       <a class="nav-link" data-nav="day" href="#/day"><span class="ni">📰</span><span>Le brief</span></a>
       <a class="nav-link" data-nav="review" href="#/review"><span class="ni">🔁</span><span>À revoir</span><span class="nav-badge" id="review-badge" hidden></span></a>
       <a class="nav-link" data-nav="archive" href="#/archive"><span class="ni">🗂️</span><span>Archives</span></a>
@@ -67,6 +68,16 @@
         </div>
       </div>
     </footer>
+  </section>
+
+  <!-- Le fil : format vertical type Shorts -->
+  <section id="feed" class="feed" hidden aria-label="Le fil du jour">
+    <header class="f-head">
+      <button class="f-close" id="f-close" aria-label="Fermer le fil">✕</button>
+      <div class="f-prog"><i id="f-prog"></i></div>
+      <span class="f-xp" id="f-xp">⚡ 0</span>
+    </header>
+    <div class="f-track" id="f-track"></div>
   </section>
 
   <dialog id="modal" class="modal">

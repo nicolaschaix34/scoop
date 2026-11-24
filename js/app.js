@@ -25,7 +25,7 @@
   // ---------- État persistant ----------
   const STORE = 'scoop.v1';
   const DEFAULT = {
-    xp: 0, streak: 0, best: 0, last: null, daily: {}, lessons: {}, review: [],
+    xp: 0, streak: 0, best: 0, last: null, daily: {}, lessons: {}, review: [], saved: [],
     stats: { answered: 0, correct: 0, lessons: 0 },
     settings: { name: '', goal: 50, exam: '', sound: true, theme: 'auto' }
   };
@@ -228,6 +228,13 @@
     if (day) {
       if (CURRENT !== TODAY) html += `<div class="banner">⏳ <span>L'édition d'aujourd'hui n'est pas encore en kiosque. Voici la dernière disponible, celle du <b>${esc(frDate(CURRENT))}</b>.</span></div>`;
       const next = day.lessons.findIndex((_, i) => !lessonState(`day:${CURRENT}:${i}`));
+      const vids = (day.shorts || []).filter(v => v && YT_ID.test(v.id)), feedDone = lessonState(`feed:${CURRENT}`);
+      html += `<a class="feed-teaser" href="#/feed/${CURRENT}">
+        <div class="ft-thumbs">${vids.slice(0, 3).map(v => `<img src="${ytThumb(v.id)}" alt="" loading="lazy">`).join('') || '<span class="ft-emoji">📱</span>'}</div>
+        <div class="ft-txt"><div class="ft-kick">${feedDone ? '✓ Fil terminé' : 'Le fil du jour'}</div><h3>Swipe l'actu ${vids.length ? 'en vidéos' : 'en cartes'}</h3>
+        <p>${vids.length ? `${vids.length} vidéos · ` : ''}${day.stories.length} infos · questions flash</p></div>
+        <span class="ft-play" aria-hidden="true">▶</span>
+      </a>`;
       html += `
       <section class="hero">
         <div class="kicker">Édition du ${esc(frDate(CURRENT))}</div>
@@ -310,7 +317,16 @@
 
   function viewArchive() {
     if (!INDEX.length) return `<div class="empty"><div class="big">🗂️</div><h2>Archives vides</h2><p class="muted">Les éditions s'accumuleront ici, jour après jour.</p></div>`;
-    return `<div class="kicker">Archives</div><h1 style="font-size:34px;margin:8px 0 20px">Toutes les éditions</h1>
+    const saved = S.saved.slice().reverse();
+    return `${saved.length ? `<div class="kicker">🔖 Infos gardées</div><h1 style="font-size:28px;margin:8px 0 14px">Ta revue de presse perso</h1>
+      <div class="list" style="margin-bottom:34px">${saved.map(s => `
+        <div class="card" style="padding:14px 16px;display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0"><div class="muted" style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em">${esc(s.tag)} · ${esc(frDate(s.date, { day: 'numeric', month: 'short' }))} · ${esc(s.source)}</div>
+          <div style="font-weight:700;margin-top:4px">${esc(s.title)}</div>
+          <div style="margin-top:6px;font-size:14px"><a href="#/day/${esc(s.date)}">Voir l'édition</a>${s.link ? ` · <a href="${esc(s.link)}" target="_blank" rel="noopener">Article ↗</a>` : ''}</div></div>
+          <button class="icon-btn" data-unsave="${esc(s.key)}" aria-label="Retirer">✕</button>
+        </div>`).join('')}</div>` : ''}
+      <div class="kicker">Archives</div><h1 style="font-size:34px;margin:8px 0 20px">Toutes les éditions</h1>
       <div class="list">${INDEX.map(({ date, title, lessons }) => {
         const n = lessons || 3; let done = 0;
         for (let i = 0; i < n; i++) if (lessonState(`day:${date}:${i}`)) done++;
@@ -386,7 +402,14 @@
   async function route() {
     const parts = (location.hash || '#/home').slice(2).split('/');
     const view = parts[0] || 'home', arg = parts[1];
+    if (view !== 'feed' && F) closeFeed();
     $$('.nav-link').forEach(a => a.classList.toggle('active', a.dataset.nav === view));
+    if (view === 'feed') {
+      // le fil s'ouvre par-dessus l'accueil ; le bouton « retour » du téléphone le referme
+      if (!$('#view').innerHTML.trim() || !$('.hero, .unit', $('#view'))) { $('#view').innerHTML = viewHome(); window.__scoopReady = true; }
+      await openFeed(arg);
+      return;
+    }
     renderChrome();
     const el = $('#view');
     let html;
@@ -423,6 +446,8 @@
     if (s && !s.disabled) { e.preventDefault(); startLesson(s.dataset.start); return; }
     const g = e.target.closest('[data-guide]');
     if (g) { openGuide(g.dataset.guide); return; }
+    const u = e.target.closest('[data-unsave]');
+    if (u) { S.saved = S.saved.filter(x => x.key !== u.dataset.unsave); save(); route(); return; }
     if (e.target.closest('[data-close]') || e.target === $('#modal')) { const m = $('#modal'); if (typeof m.close === 'function') m.close(); else m.removeAttribute('open'); }
   });
 
@@ -745,6 +770,225 @@
       };
     }
   };
+
+  // =========================================================
+  //   LE FIL : format vertical type Shorts
+  //   vidéos de rédactions + cartes infos + questions flash
+  // =========================================================
+  let F = null, feedObs = null;
+  const YT_ID = /^[\w-]{6,20}$/;
+  const ytThumb = id => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+  const savedKey = (date, i) => `${date}:${i}`;
+  const isSaved = (date, i) => S.saved.some(s => s.key === savedKey(date, i));
+
+  function buildFeed(date, day) {
+    const colors = day.tagColors || {};
+    const stories = day.stories.map((s, i) => ({ type: 'story', s, i, color: s.color || colors[s.tag] || '#E63946' }));
+    const vids = (day.shorts || []).filter(v => v && YT_ID.test(v.id)).map(v => ({ type: 'video', v }));
+    const pool = [];
+    day.lessons.forEach((l, li) => l.exercises.forEach((ex, ei) => {
+      if ((ex.t === 'qcm' && ex.c.length <= 4) || ex.t === 'vf') pool.push({ ex, id: `day:${date}:${li}:${ei}` });
+    }));
+    const quiz = shuffle(pool).slice(0, Math.min(8, Math.max(4, Math.round(stories.length * 0.7)))).map(q => Object.assign({ type: 'quiz' }, q));
+    // chaque vidéo liée à une info passe juste après elle ; les autres comblent les trous
+    const linked = {}, free = [];
+    vids.forEach(v => { const k = v.v.story; if (Number.isInteger(k) && stories[k]) (linked[k] = linked[k] || []).push(v); else free.push(v); });
+    const seq = [{ type: 'intro' }];
+    stories.forEach((st, k) => {
+      if (linked[st.i]) { seq.push(linked[st.i][0], st, ...linked[st.i].slice(1)); }
+      else { seq.push(st); if (free.length) seq.push(free.shift()); }
+      if (k % 2 === 1 && quiz.length) seq.push(quiz.shift());
+    });
+    while (free.length || quiz.length) { if (free.length) seq.push(free.shift()); if (quiz.length) seq.push(quiz.shift()); }
+    seq.push({ type: 'end' });
+    return seq;
+  }
+
+  function feedCard(it, k, date, day) {
+    if (it.type === 'intro') {
+      const vids = (day.shorts || []), srcs = [...new Set(vids.map(v => v.source))];
+      const nq = F.seq.filter(x => x.type === 'quiz').length;
+      return `<section class="fcard f-intro" data-k="${k}"><div class="f-inner">
+        <div class="f-kick">Le fil du ${esc(frDate(date))}</div>
+        <h1>L'actu en ${F.seq.length - 2} swipes</h1>
+        <ul class="f-counts">
+          ${vids.length ? `<li><b>${vids.length}</b> vidéos courtes de ${srcs.length} rédactions</li>` : ''}
+          <li><b>${day.stories.length}</b> infos clés à retenir</li>
+          <li><b>${nq}</b> questions flash (+5 XP chacune)</li>
+        </ul>
+        ${srcs.length ? `<p class="f-sources">${srcs.map(esc).join(' · ')}</p>` : ''}
+        <div class="f-hint"><span>↑</span>Swipe pour commencer</div>
+      </div></section>`;
+    }
+    if (it.type === 'story') {
+      const s = it.s, sv = isSaved(date, it.i);
+      return `<section class="fcard f-story" data-k="${k}" style="--c:${esc(it.color)}">
+        <div class="f-inner">
+          <span class="f-tag">${esc(s.tag)}</span>
+          <h2>${esc(s.title)}</h2>
+          <p>${rich(s.text)}</p>
+          ${s.why ? `<div class="f-why">🎯 ${rich(s.why)}</div>` : ''}
+          <div class="f-src">Source : ${esc(s.source)}</div>
+        </div>
+        <div class="f-rail">
+          <button class="f-act ${sv ? 'on' : ''}" data-save="${it.i}" aria-pressed="${sv}"><span>🔖</span><small>${sv ? 'Gardée' : 'Garder'}</small></button>
+          ${s.link ? `<a class="f-act" href="${esc(s.link)}" target="_blank" rel="noopener"><span>↗</span><small>Source</small></a>` : ''}
+        </div>
+      </section>`;
+    }
+    if (it.type === 'video') {
+      const v = it.v, st = Number.isInteger(v.story) ? day.stories[v.story] : null;
+      return `<section class="fcard f-video" data-k="${k}" data-vid="${esc(v.id)}">
+        <div class="f-player"><img src="${ytThumb(v.id)}" alt="" loading="lazy"><div class="f-play" aria-hidden="true">▶</div></div>
+        <div class="f-meta">
+          <div class="f-meta-top"><span class="f-chan">▶ ${esc(v.source)}</span><a class="f-yt" href="https://www.youtube.com/shorts/${esc(v.id)}" target="_blank" rel="noopener">YouTube ↗</a></div>
+          <h3>${esc(v.title)}</h3>
+          ${st ? `<div class="f-link">📰 À suivre : l'essentiel à retenir ↓</div>` : ''}
+          <div class="f-swipe">↑ Swipe ici pour continuer</div>
+        </div>
+      </section>`;
+    }
+    if (it.type === 'quiz') {
+      const ex = it.ex, vf = ex.t === 'vf';
+      const choices = vf ? [['Vrai', 0], ['Faux', 1]] : shuffle(ex.c.map((c, i) => [c, i]));
+      return `<section class="fcard f-quiz" data-k="${k}"><div class="f-inner">
+        <div class="f-kick">⚡ Question flash · +5 XP</div>
+        <h2>${vf ? 'Vrai ou faux ?' : rich(ex.q)}</h2>
+        ${vf ? `<blockquote class="f-state">${rich(ex.q)}</blockquote>` : ''}
+        <div class="f-choices ${vf ? 'two' : ''}">${choices.map(([c, i]) => `<button class="f-choice" data-c="${i}">${rich(c)}</button>`).join('')}</div>
+        <div class="f-expl" hidden></div>
+      </div></section>`;
+    }
+    return `<section class="fcard f-end" data-k="${k}"><div class="f-inner">
+      <div class="f-big">🎉</div>
+      <h1>Tu es à jour !</h1>
+      <p class="f-endstats" id="f-endstats"></p>
+      <div class="f-endbtns">
+        <button class="btn primary" data-feed-test>▶ Faire le test du jour</button>
+        <button class="btn ghost f-ghost" data-feed-close>Retour à l'accueil</button>
+      </div>
+    </div></section>`;
+  }
+
+  async function openFeed(date) {
+    date = date && DATE_RE.test(date) ? date : CURRENT;
+    const day = await getDay(date);
+    if (!day) { location.hash = '#/home'; return; }
+    if (F && F.date === date) return;
+    F = { date, day, seq: [], xp: 0, answered: 0, right: 0, videos: new Set(), active: -1, done: false };
+    F.seq = buildFeed(date, day);
+    const track = $('#f-track');
+    track.innerHTML = F.seq.map((it, k) => feedCard(it, k, date, day)).join('');
+    $('#feed').hidden = false;
+    document.body.classList.add('in-lesson');
+    $('#f-xp').textContent = '⚡ 0';
+    track.scrollTop = 0;
+    if (document.activeElement) document.activeElement.blur();
+    if (feedObs) feedObs.disconnect();
+    feedObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) feedActivate(+e.target.dataset.k); });
+    }, { root: track, threshold: 0.6 });
+    $$('.fcard', track).forEach(c => feedObs.observe(c));
+    feedActivate(0);
+  }
+
+  function stopVideo(card) {
+    const ifr = card && $('iframe', card);
+    if (ifr) ifr.remove();
+    if (card) card.classList.remove('playing');
+  }
+
+  function feedActivate(k) {
+    if (!F || F.active === k) return;
+    const track = $('#f-track');
+    stopVideo($(`.fcard[data-k="${F.active}"]`, track));
+    F.active = k;
+    $('#f-prog').style.width = `${Math.round((k / Math.max(1, F.seq.length - 1)) * 100)}%`;
+    const card = $(`.fcard[data-k="${k}"]`, track), it = F.seq[k];
+    if (!card || !it) return;
+    if (it.type === 'video') {
+      const id = it.v.id;
+      F.videos.add(id);
+      // lecture automatique en muet (règle des navigateurs) ; le son s'active dans le lecteur
+      $('.f-player', card).insertAdjacentHTML('beforeend',
+        `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${id}&rel=0&modestbranding=1" title="${esc(it.v.title)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`);
+      card.classList.add('playing');
+    }
+    if (it.type === 'end') finishFeed();
+  }
+
+  function finishFeed() {
+    const key = `feed:${F.date}`;
+    if (!F.done && !S.lessons[key]) {
+      F.done = true; F.xp += 10; addXp(10); markActive();
+      S.lessons[key] = { stars: 3, at: TODAY };
+      save();
+    }
+    $('#f-xp').textContent = `⚡ ${F.xp}`;
+    const nq = F.seq.filter(x => x.type === 'quiz').length;
+    const el = $('#f-endstats');
+    if (el) el.innerHTML = `${F.videos.size} vidéo${F.videos.size > 1 ? 's' : ''} vue${F.videos.size > 1 ? 's' : ''} · ${F.right}/${nq} bonnes réponses · <b>+${F.xp} XP</b><br>🔥 Série : ${streakNow()} jour${streakNow() > 1 ? 's' : ''}`;
+    const next = F.day.lessons.findIndex((_, i) => !lessonState(`day:${F.date}:${i}`));
+    const b = $('[data-feed-test]');
+    if (b) { if (next < 0) b.textContent = '✓ Tests du jour bouclés'; b.dataset.next = next; b.disabled = next < 0; }
+  }
+
+  function closeFeed() {
+    if (!F) return;
+    $$('.fcard', $('#f-track')).forEach(stopVideo);
+    if (feedObs) feedObs.disconnect();
+    $('#f-track').innerHTML = '';
+    $('#feed').hidden = true;
+    if (!L) document.body.classList.remove('in-lesson');
+    F = null;
+    renderChrome();
+  }
+
+  function answerFlash(btn) {
+    const card = btn.closest('.f-quiz'); if (!card || card.classList.contains('answered')) return;
+    const it = F.seq[+card.dataset.k], ex = it.ex;
+    const good = ex.t === 'vf' ? (ex.a ? 0 : 1) : ex.a, pick = +btn.dataset.c, ok = pick === good;
+    card.classList.add('answered');
+    $$('.f-choice', card).forEach(b => { const c = +b.dataset.c; if (c === good) b.classList.add('right'); else if (c === pick) b.classList.add('wrong'); });
+    S.stats.answered++; F.answered++;
+    if (ok) { S.stats.correct++; F.right++; F.xp += 5; addXp(5); sfx.ok(); }
+    else {
+      sfx.ko();
+      if (!S.review.some(r => r.id === it.id)) S.review.push({ id: it.id, ex, from: `Fil du ${frDate(F.date)}`, at: TODAY });
+    }
+    markActive(); save();
+    $('#f-xp').textContent = `⚡ ${F.xp}`;
+    const ex_ = $('.f-expl', card);
+    ex_.innerHTML = `<b>${ok ? '✓ Bien vu !' : '✕ Raté, la question part dans « À revoir ».'}</b>${ex.x ? ' ' + rich(ex.x) : ''}`;
+    ex_.hidden = false;
+  }
+
+  function toggleSave(i) {
+    const s = F.day.stories[i], key = savedKey(F.date, i);
+    const at = S.saved.findIndex(x => x.key === key);
+    if (at >= 0) S.saved.splice(at, 1);
+    else S.saved.push({ key, date: F.date, title: s.title, tag: s.tag, source: s.source, link: s.link || '' });
+    save();
+    const b = $(`[data-save="${i}"]`, $('#f-track')), on = at < 0;
+    if (b) { b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); $('small', b).textContent = on ? 'Gardée' : 'Garder'; }
+    if (on) sfx.pair();
+  }
+
+  $('#f-close').addEventListener('click', () => { location.hash = '#/home'; });
+  $('#f-track').addEventListener('click', e => {
+    const c = e.target.closest('.f-choice'); if (c) { answerFlash(c); return; }
+    const s = e.target.closest('[data-save]'); if (s) { toggleSave(+s.dataset.save); return; }
+    if (e.target.closest('[data-feed-close]')) { location.hash = '#/home'; return; }
+    const t = e.target.closest('[data-feed-test]');
+    if (t && !t.disabled) { const k = `day:${F.date}:${t.dataset.next}`; location.hash = '#/home'; setTimeout(() => startLesson(k), 50); }
+  });
+  document.addEventListener('keydown', e => {
+    if (!F || L) return;
+    const track = $('#f-track');
+    if (e.key === 'Escape') { location.hash = '#/home'; return; }
+    if (['ArrowDown', 'PageDown', 'j', ' '].includes(e.key)) { e.preventDefault(); track.scrollBy({ top: track.clientHeight, behavior: 'smooth' }); }
+    if (['ArrowUp', 'PageUp', 'k'].includes(e.key)) { e.preventDefault(); track.scrollBy({ top: -track.clientHeight, behavior: 'smooth' }); }
+  });
 
   // ---------- Appli installable (PWA) ----------
   let installEvt = null;
