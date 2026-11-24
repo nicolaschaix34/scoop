@@ -24,7 +24,7 @@ FEEDS = [
     ("Le Monde Économie", "https://www.lemonde.fr/economie/rss_full.xml", "fr"),
     ("Le Monde Médias", "https://www.lemonde.fr/actualite-medias/rss_full.xml", "fr"),
     ("Le Monde Culture", "https://www.lemonde.fr/culture/rss_full.xml", "fr"),
-    ("franceinfo", "https://www.francetvinfo.fr/titres.rss", "fr"),
+    ("franceinfo", "https://www.franceinfo.fr/titres.rss", "fr"),
     ("France 24", "https://www.france24.com/fr/rss", "fr"),
     ("RFI", "https://www.rfi.fr/fr/rss", "fr"),
     ("Le Figaro", "https://www.lefigaro.fr/rss/figaro_actualites.xml", "fr"),
