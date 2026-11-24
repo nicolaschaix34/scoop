@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Scoop · L'actu chaque jour</title>
+  <meta name="description" content="Suis l'actualité chaque jour et prépare les concours des écoles de journalisme, leçon après leçon.">
+  <meta name="theme-color" content="#E63946">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Scoop">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23E63946'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' font-weight='900' text-anchor='middle' fill='white'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Barre latérale (desktop) / barre d'onglets (mobile) -->
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="logo" href="#/home" aria-label="Scoop, accueil">
+        <span class="logo-mark">S</span><span class="logo-text">scoop<span class="logo-dot">.</span></span>
+      </a>
+      <a class="nav-link" data-nav="home" href="#/home"><span class="ni">🏠</span><span>Parcours</span></a>
+      <a class="nav-link" data-nav="day" href="#/day"><span class="ni">📰</span><span>Le brief</span></a>
+      <a class="nav-link" data-nav="review" href="#/review"><span class="ni">🔁</span><span>À revoir</span><span class="nav-badge" id="review-badge" hidden></span></a>
+      <a class="nav-link" data-nav="archive" href="#/archive"><span class="ni">🗂️</span><span>Archives</span></a>
+      <a class="nav-link" data-nav="profile" href="#/profile"><span class="ni">👤</span><span>Profil</span></a>
+    </nav>
+
+    <div class="main-col">
+      <header class="topbar" id="topbar"></header>
+      <main id="view" class="view" tabindex="-1"></main>
+    </div>
+
+    <aside class="rail" id="rail" aria-label="Progression"></aside>
+  </div>
+
+  <!-- Écran de leçon -->
+  <section id="lesson" class="lesson" hidden aria-live="polite">
+    <header class="lesson-head">
+      <button class="icon-btn" id="lesson-close" aria-label="Quitter la leçon">✕</button>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="progress-fill"></i></div>
+      <span class="combo" id="combo" hidden></span>
+    </header>
+    <div class="lesson-body"><div id="ex" class="ex"></div></div>
+    <footer class="checkbar" id="checkbar">
+      <div class="checkbar-inner">
+        <div class="fb" id="fb">
+          <div class="fb-icon" id="fb-icon"></div>
+          <div class="fb-content">
+            <div class="fb-title" id="fb-title"></div>
+            <div class="fb-sol" id="fb-sol"></div>
+            <div class="fb-text" id="fb-text"></div>
+          </div>
+        </div>
+        <div class="checkbar-actions">
+          <button class="btn ghost" id="skip">Je ne sais pas</button>
+          <button class="btn primary" id="check" disabled>Valider</button>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <dialog id="modal" class="modal">
+    <div class="modal-inner" id="modal-inner"></div>
+  </dialog>
+
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <script src="data/units.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
