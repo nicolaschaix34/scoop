@@ -6,7 +6,10 @@ C'est une application d'entraînement façon « appli de langues », pensée pou
 
 ## Lancer
 
-Double-clique sur `index.html`. Il n'y a ni serveur ni installation. La progression est enregistrée dans le navigateur.
+- **Sur téléphone** : ouvre **https://nicolaschaix34.github.io/scoop/** puis installe l'appli. Sur Android, utilise le bouton « Installer ». Sur iPhone, passe par Safari : touche Partager, puis « Sur l'écran d'accueil ».
+- **Sur PC** : double-clique sur `index.html`, ou ouvre le lien ci-dessus.
+
+La progression est enregistrée sur chaque appareil. Pour la transférer, utilise Profil, puis Exporter et Importer.
 
 ## Ce qu'il y a dedans
 
