@@ -1,157 +1,153 @@
-// SCOOP:REGENERER  (marqueur : la prochaine routine remplace cette édition par une version à jour)
-/* Scoop — édition du 2026-11-24 (actualité du lundi 23 novembre 2026) */
+/* Scoop — édition du 2026-11-24 (actualité du lundi 23 et du mardi 24 novembre 2026) */
 window.SCOOP_DAYS = window.SCOOP_DAYS || {};
 window.SCOOP_DAYS['2026-11-24'] = {
   date: '2026-11-24',
-  title: 'COP31 en échec, « règle d\'or » en débat, Kiev frappe en Libye',
-  intro: 'Une COP qui se termine sans accord, un président qui veut graver l\'équilibre budgétaire dans la Constitution, et une guerre en Ukraine qui s\'étend jusqu\'en Méditerranée. Voici les infos de la veille à maîtriser.',
+  title: 'Huang de retour chez Nvidia, course à l\'Élysée, lycéens mobilisés',
+  intro: 'Le patron de Nvidia retrouve son fauteuil dix jours après avoir démissionné, la course à la présidentielle s\'accélère au congrès des maires et les lycées tentent de reprendre les cours. Voici les infos à maîtriser ce mardi.',
   word: {
-    term: 'Règle d\'or budgétaire',
-    def: 'C\'est un principe, souvent inscrit dans la Constitution, qui impose l\'équilibre des comptes publics ou plafonne le déficit. L\'Allemagne a son « frein à l\'endettement » depuis 2009. Emmanuel Macron envisage d\'en inscrire une en France, ce qui suppose une **révision constitutionnelle** (article 89).'
+    term: 'Parrainage (présidentielle)',
+    def: 'Pour se présenter à l\'élection présidentielle, un candidat doit réunir **500 parrainages** d\'élus (maires, parlementaires, conseillers…). Cette étape filtre les candidatures avant le scrutin : c\'est pourquoi le **congrès des maires**, plus grand rassemblement d\'élus locaux d\'Europe, est un passage obligé pour les prétendants. La liste des parrainages est ensuite contrôlée par le **Conseil constitutionnel**.'
   },
   tagColors: { 'Politique': '#3A86FF', 'Climat': '#2B9348', 'Monde': '#0FA3B1', 'Économie': '#F4A261', 'Médias': '#E63946', 'Justice': '#8E44AD', 'Europe': '#4361EE', 'Société': '#D6336C' },
   stories: [
     {
       tag: 'Politique',
-      title: 'Budget : Macron veut une « règle d\'or » dans la Constitution',
-      text: 'Le chef de l\'État envisage une règle qui obligerait le gouvernement à faire adopter par le Parlement une **loi-cadre d\'au moins trois ans** de retour à l\'équilibre des finances publiques. Il faudrait pour cela réunir le Congrès. Le Monde relève cinq obstacles : l\'impopularité du président, un calendrier serré, la complexité technique, une efficacité incertaine et le risque de rigidité. Le budget de l\'État et celui de la Sécurité sociale ont été rejetés à l\'Assemblée, et le Premier ministre **Sébastien Lecornu** appelle au « compromis » dans une lettre aux parlementaires.',
-      why: 'Révise la révision constitutionnelle (article 89, Congrès, 3/5 des suffrages exprimés), le PLF et le PLFSS, ainsi que l\'article 47 (délai de 70 jours).',
-      source: 'franceinfo, Le Monde',
-      link: 'https://www.lemonde.fr/'
-    },
-    {
-      tag: 'Politique',
-      title: 'Présidentielle 2027 : Villepin entre en campagne, les dates font débat',
-      text: 'Le calendrier fixé par l\'exécutif prévoit le premier tour le **18 avril** et le second le **2 mai**. Ces dates posent des casse-tête à la classe politique, aux syndicats et aux médias. Candidat officiel, l\'ancien Premier ministre **Dominique de Villepin** promet, s\'il est élu, de convoquer le Congrès dès le lendemain pour former un « gouvernement de mission ».',
-      why: 'Révise le mode d\'élection du président (suffrage universel direct, deux tours) et le rôle du Congrès.',
-      source: 'franceinfo, France 24',
-      link: 'https://www.francetvinfo.fr/'
-    },
-    {
-      tag: 'Climat',
-      title: 'La COP31 s\'achève sans accord sur les énergies fossiles',
-      text: 'Les pays producteurs de pétrole ont pesé pour que la sortie des énergies fossiles ne figure pas dans la déclaration finale. Plus d\'une centaine de pays ont alors refusé de l\'adopter sans cette mention. La conférence n\'a pas non plus avancé sur le **financement climatique**, ce qui en fait un nouvel échec pour la diplomatie climatique.',
-      why: 'Les COP sont les conférences des parties à la convention climat de l\'ONU (1992). L\'Accord de Paris (COP21) date de 2015.',
-      source: 'franceinfo, France 24',
-      link: 'https://www.france24.com/fr/'
-    },
-    {
-      tag: 'Monde',
-      title: 'L\'Ukraine frappe deux navires russes au large de la Libye',
-      text: 'Volodymyr Zelensky a revendiqué l\'attaque de deux navires russes près de **Benghazi**, dans l\'est de la Libye, ce qui étend la guerre jusqu\'en Méditerranée. Les autorités de l\'est libyen ont porté plainte auprès de l\'ONU pour violation de leur souveraineté. Sur les réseaux sociaux, d\'anciennes vidéos **tournées en Grèce** circulent comme si elles montraient l\'attaque.',
-      why: 'C\'est un cas d\'école de fact-checking : une vidéo recyclée, à vérifier par recherche d\'image inversée et par géolocalisation.',
+      title: 'Congrès des maires : les prétendants à l\'Élysée en quête de parrainages',
+      text: 'Le **congrès des maires de France** s\'ouvre sur fond de course à la présidentielle. Pour les prétendants en quête des **500 parrainages** nécessaires, il est difficile de faire l\'impasse sur le plus grand rassemblement d\'élus locaux d\'Europe. Des protestations entourent la double candidature de **David Lisnard**. À moins de cinq mois du premier tour, prévu le **18 avril**, **Dominique de Villepin**, qui a officialisé sa candidature vendredi, est le dernier entré dans la course.',
+      why: 'Révise les conditions de candidature à la présidentielle (500 parrainages, contrôle par le Conseil constitutionnel) et le rôle des maires.',
       source: 'Le Monde, France 24',
-      link: 'https://www.lemonde.fr/international/'
+      link: 'https://www.lemonde.fr/politique/article/2026/11/24/le-congres-des-maires-de-france-s-ouvre-sur-fond-de-course-a-la-presidentielle-et-de-protestations-autour-de-la-double-candidature-de-david-lisnard_6814718_823448.html'
+    },
+    {
+      tag: 'Société',
+      title: 'Mouvement lycéen : une reprise des cours « délicate et précaire »',
+      text: 'Face à une situation « tendue et volatile », des proviseurs tentent de rouvrir leur établissement et de **reconstruire de l\'unité**. Certains lycées reprennent en petits effectifs, d\'autres organisent des rencontres entre lycéens ou avec les parents d\'élèves : chaque établissement teste sa propre recette. Partout en Europe, des centaines de milliers de jeunes manifestent depuis vendredi pour leur avenir et contre la vie chère, en dénonçant la hausse des budgets militaires.',
+      why: 'Un sujet de société à traiter avec recul : mobilisation de la jeunesse, vie chère, rôle des établissements scolaires.',
+      source: 'Le Monde, France 24',
+      link: 'https://www.lemonde.fr/societe/article/2026/11/24/mouvement-lyceen-la-delicate-et-precaire-reprise-des-cours-dans-les-etablissements-les-plus-mobilises_6814703_3224.html'
     },
     {
       tag: 'Économie',
-      title: 'La France va constituer des stocks stratégiques de terres rares',
-      text: 'L\'Élysée annonce des réserves de terres rares et de « métaux prioritaires », sur le modèle des **réserves stratégiques de pétrole**. Le projet, piloté par la **Caisse des dépôts**, doit réduire la dépendance à la Chine d\'ici à 2027. Les industriels des secteurs stratégiques seront consultés.',
-      why: 'C\'est l\'enjeu de la souveraineté industrielle : la Chine domine le raffinage mondial des terres rares.',
-      source: 'Le Monde, franceinfo, France 24',
-      link: 'https://www.lemonde.fr/economie/'
+      title: 'Nvidia : Jensen Huang réintégré, Washington durcit sa lutte contre la contrebande de puces',
+      text: 'Poussé à la démission le **12 novembre** après la révélation d\'une relation extraconjugale avec une femme soupçonnée de transmettre des informations aux services secrets chinois, **Jensen Huang** a été réintégré lundi par le conseil d\'administration de Nvidia. Son retour, après des appels répétés de **Donald Trump**, a provoqué un bond de **31 %** de l\'action en Bourse. Dans le même temps, le ministère américain du Commerce a placé sur liste noire la société singapourienne **Megaspeed** et ses filiales, soupçonnées d\'avoir fourni des puces Nvidia à la Chine malgré l\'embargo. Singapour assure coopérer avec Washington.',
+      why: 'C\'est le volet technologique de la rivalité sino-américaine : contrôle des exportations de puces, embargo et poids des marchés financiers.',
+      source: 'Le Monde, France 24',
+      link: 'https://www.lemonde.fr/economie/article/2026/11/24/le-come-back-spectaculaire-de-jensen-huang-a-la-tete-de-nvidia-sous-la-pression-de-donald-trump-et-des-marches-financiers_6814669_3234.html'
+    },
+    {
+      tag: 'Économie',
+      title: 'La France va créer des stocks stratégiques de terres rares',
+      text: 'L\'Élysée annonce un projet de « **stocks stratégiques** » de minerais critiques et de métaux prioritaires, inspiré des réserves stratégiques de pétrole. L\'objectif est de sécuriser l\'approvisionnement et de **réduire la dépendance à la Chine d\'ici à 2027**. La **Caisse des dépôts** pilotera le projet et consultera les industriels des secteurs stratégiques utilisant ces matières premières.',
+      why: 'C\'est l\'enjeu de la souveraineté industrielle et des approvisionnements critiques.',
+      source: 'Le Monde, France 24',
+      link: 'https://www.lemonde.fr/economie/article/2026/11/23/la-france-va-creer-des-stocks-strategiques-de-terres-rares-et-de-metaux-prioritaires-pour-reduire-sa-dependance-a-la-chine-d-ici-a-2027_6814452_3234.html'
+    },
+    {
+      tag: 'Économie',
+      title: 'Sanofi rachète Insmed, les épargnants quittent le Livret A',
+      text: 'Le groupe pharmaceutique français **Sanofi** va racheter l\'américain **Insmed** pour **37,6 milliards d\'euros**, l\'une de ses plus grosses acquisitions. L\'opération devrait être finalisée au premier semestre 2027. Côté épargne, les Français ont retiré près de **10 milliards d\'euros** de leur **Livret A** depuis janvier, un record depuis dix ans ; son taux pourrait passer de 1,7 % à 2,8 % en février. Enfin, la hausse des cours de l\'énergie tarde à se répercuter sur l\'ensemble des prix, car l\'activité est atone et le chômage remonte.',
+      why: 'Fusions-acquisitions, épargne réglementée et inflation : trois notions d\'économie à savoir expliquer simplement.',
+      source: 'Le Monde',
+      link: 'https://www.lemonde.fr/economie/article/2026/11/24/sanofi-groupe-pharmaceutique-francais-va-racheter-l-americain-insmed-pour-37-6-milliards-d-euros_6814719_3234.html'
     },
     {
       tag: 'Monde',
-      title: 'Nvidia : Jensen Huang réintégré, un intermédiaire sur liste noire',
-      text: 'Le conseil d\'administration de Nvidia a réintégré **Jensen Huang** comme directeur général, une dizaine de jours après sa démission liée à un scandale mêlant adultère, espionnage et contrebande. Ce retour intervient après des appels répétés de Donald Trump. Washington a par ailleurs placé sur liste noire la société singapourienne **Megaspeed**, soupçonnée d\'avoir fourni des puces Nvidia à la Chine en contournant l\'embargo.',
-      why: 'C\'est le volet technologique de la rivalité entre les États-Unis et la Chine : contrôle des exportations de puces et embargos.',
-      source: 'Le Monde, France 24',
-      link: 'https://www.france24.com/fr/'
+      title: 'Ukraine : l\'attaque de Benghazi attise les tensions, Zaporijjia sous les frappes',
+      text: 'Après l\'attaque ukrainienne contre un navire de guerre russe à **Benghazi**, en Libye, des publications sur les réseaux sociaux détournent d\'anciennes vidéos : elles ont été prises **en Grèce** il y a plusieurs mois. Le gouvernement libyen d\'union nationale, basé à Tripoli, a réclamé des explications à Kiev. Sur le front, des frappes russes sur la ville de **Zaporijjia** ont fait au moins deux morts et plus de 30 blessés dans la nuit, dont quatre mineurs.',
+      why: 'Cas d\'école de vérification : une vidéo recyclée se détecte par recherche d\'image inversée et géolocalisation.',
+      source: 'France 24, Le Monde',
+      link: 'https://www.france24.com/fr/%C3%A9missions/info-ou-intox/20261123-l-attaque-ukrainienne-%C3%A0-benghazi-attise-les-tensions-en-libye-et-en-m%C3%A9diterran%C3%A9e'
     },
     {
       tag: 'Justice',
       title: 'Génocide des Rohingya : 14 pays reconnaissent la décision de la CIJ',
-      text: 'La semaine dernière, la **Cour internationale de justice** a reconnu le génocide commis par la Birmanie contre les Rohingya. Le Royaume-Uni, l\'Espagne, le Canada, l\'Australie et dix autres pays déclarent reconnaître cette décision et exhortent la Birmanie à respecter ses obligations.',
-      why: 'La CIJ juge les États et la CPI juge les individus. La Gambie avait saisi la CIJ en 2019.',
+      text: 'La **Cour internationale de justice** a jugé le **19 novembre** que la Birmanie a commis un génocide contre la minorité rohingya en 2017. Le Royaume-Uni, l\'Espagne, le Canada, l\'Australie et dix autres pays ont affirmé lundi reconnaître cette décision et exhortent la Birmanie à se « conformer pleinement à ses obligations ». Pour des juristes, cette jurisprudence pèse aussi dans le débat sur la qualification de génocide à Gaza.',
+      why: 'La CIJ juge les États, la Cour pénale internationale juge les individus : une distinction classique des concours.',
       source: 'France 24, Le Monde',
-      link: 'https://www.france24.com/fr/'
+      link: 'https://www.france24.com/fr/asie-pacifique/20261123-birmanie-genocide-rohingya-14-pays-reconnaissent-decision-cij'
     },
     {
       tag: 'Médias',
-      title: 'Journalistes agressés, droits voisins, IA : la semaine des médias',
-      text: 'L\'**Arcom** s\'alarme d\'un niveau « préoccupant » et « inédit » d\'agressions et d\'intimidations visant les journalistes. Le Parlement a définitivement adopté une loi pour mieux rémunérer la presse au titre des **droits voisins**. *Le Figaro* signe à son tour un accord avec OpenAI. Pour la présidentielle 2027, les **créateurs de contenu** auront des obligations de pluralisme. En Turquie, la chaîne d\'opposition Sözcü TV a été placée sous la tutelle d\'un administrateur nommé par le gouvernement.',
-      why: 'Le pluralisme, la liberté de la presse, le rôle de l\'Arcom et l\'économie des médias face à l\'IA sont des sujets d\'oral très probables.',
+      title: 'Journalistes agressés, « 60 millions de consommateurs » repris par Xavier Niel',
+      text: 'L\'**Arcom** alerte sur un niveau « préoccupant » et « inédit » d\'agressions et d\'intimidations visant des journalistes : des dizaines de cas de blessés par les forces de l\'ordre ou des manifestants ont été rapportés depuis le début des mobilisations. L\'offre de reprise du magazine **« 60 millions de consommateurs »** par **Xavier Niel** a été validée par l\'État : vingt-neuf salariés conserveront leur emploi, une vingtaine seront licenciés. Pour la présidentielle 2027, les **influenceurs et podcasteurs** recevant des responsables politiques devront respecter des règles de temps de parole et de déontologie. En Turquie, la chaîne d\'opposition **Sözcü TV** a vu ses bureaux perquisitionnés et un administrateur nommé par le gouvernement.',
+      why: 'Liberté de la presse, pluralisme, régulation par l\'Arcom et concentration des médias : des sujets d\'oral très probables.',
       source: 'Le Monde (rubrique Médias)',
-      link: 'https://www.lemonde.fr/actualite-medias/'
+      link: 'https://www.lemonde.fr/actualite-medias/article/2026/11/20/l-arcom-alerte-sur-le-niveau-preoccupant-des-agressions-et-intimidations-visant-des-journalistes-c-est-inedit-a-ce-degre-de-tension_6813605_3236.html'
     },
     {
       tag: 'Europe',
-      title: 'En bref en Europe',
-      text: '**Espagne** : l\'indépendantiste catalan Carles Puigdemont est définitivement blanchi par le Tribunal suprême, avant les législatives du 29 novembre. **Belgique** : le pays est en grève contre l\'austérité, et le Premier ministre Bart De Wever a obtenu un délai pour son budget. **Royaume-Uni** : le Premier ministre Andy Burnham défend son accord avec l\'UE. **UE** : la Commission veut interdire l\'affichage des symboles russes dans les compétitions sportives.',
+      title: 'Europe : symboles russes, immatriculations et jeunesse mobilisée',
+      text: 'La **Commission européenne** veut « interdire l\'affichage des symboles russes » dans les compétitions sportives sur le sol de l\'Union et empêcher les Européens d\'occuper des postes dans les instances dirigeantes d\'entreprises en Russie. Côté marché, les immatriculations de voitures neuves dans l\'UE sont en hausse de **5,4 %** sur dix mois, soit **9,46 millions** de véhicules, les voitures électriques représentant presque le quart des ventes. De Berlin à Madrid, des centaines de milliers de jeunes ont manifesté contre la vie chère et le réarmement.',
+      why: 'Sanctions européennes, transition vers l\'électrique et mobilisations de la jeunesse : trois angles pour parler de l\'UE.',
       source: 'Le Monde, France 24',
-      link: 'https://www.lemonde.fr/international/'
+      link: 'https://www.lemonde.fr/international/article/2026/11/23/l-union-europeenne-veut-interdire-l-affichage-des-symboles-russes-dans-les-competitions-sportives-sur-son-sol_6814445_3210.html'
     },
     {
-      tag: 'Société',
-      title: 'Retraites : la Cour des comptes veut limiter les départs anticipés',
-      text: 'Dans une note, la Cour des comptes avance des pistes pour garantir la soutenabilité du système **par répartition**. Elle souligne que près d\'**un assuré sur deux** peut toucher sa pension avant l\'âge légal, et recommande de revoir ces dispositifs.',
-      why: 'Révise la différence entre répartition et capitalisation, et le rôle de la Cour des comptes (une juridiction financière).',
-      source: 'Le Monde',
-      link: 'https://www.lemonde.fr/'
+      tag: 'Monde',
+      title: 'Le monde en bref : peine de mort, astronaute pakistanais, drone au Soudan',
+      text: '**États-Unis** : Donald Trump demande au ministère de la Justice de requérir la peine de mort pour les meurtriers d\'enfants et dit avoir demandé d\'« accélérer l\'exécution des condamnations à mort fédérales ». **Chine** : le Pakistanais Muhammad Zeeshan Ali sera le premier astronaute étranger à se rendre dans la station spatiale chinoise ; l\'équipage décolle mercredi. **Soudan** : l\'armée accuse les Forces de soutien rapide d\'avoir lancé depuis l\'Éthiopie une frappe de drone contre un bâtiment de l\'ONU. **ONU** : Antonio Guterres souhaite un cadre multilatéral de gestion des risques liés à l\'IA d\'ici l\'année prochaine.',
+      source: 'Le Monde, France 24',
+      link: 'https://www.lemonde.fr/international/article/2026/11/24/donald-trump-demande-au-ministere-de-la-justice-de-requerir-la-peine-de-mort-pour-les-meurtriers-d-enfants_6814537_3210.html'
     }
   ],
   // Vidéos courtes (YouTube Shorts de rédactions) ; "story" = index de l'info liée dans stories[]
   shorts: [
-    { id: 'Kw9-raRpFLA', source: 'franceinfo', title: 'Peut-on décaler les dates de l\'élection présidentielle ?', tag: 'Politique', story: 1 },
-    { id: 'GM6cy-cmJa0', source: 'franceinfo', title: 'Thierry Breton plaide pour l\'encadrement légal de la dette', tag: 'Politique', story: 0 },
-    { id: 'q_40euQifz0', source: 'Brut', title: 'La COP31 vient de se terminer et c\'est un échec, on vous explique.', tag: 'Climat', story: 2 },
-    { id: 'ItuzQkICG_8', source: 'Le Monde', title: 'Volodymyr Zelensky revendique l\'attaque de deux bateaux russes en Libye', tag: 'Monde', story: 3 },
-    { id: '6tLYdyUmU5A', source: 'France 24', title: 'Jensen Huang de retour à la tête de Nvidia dans un volte-face inattendu', tag: 'Monde', story: 5 },
-    { id: 'zaclb-UXRD4', source: 'Libération', title: 'Comment agir face à CNews ?', tag: 'Médias', story: 7 },
-    { id: 'C5RKBc29LYE', source: 'France 24', title: 'Belgique : le pays en grève contre l\'austérité du gouvernement', tag: 'Europe', story: 8 },
-    { id: 'xFbs6lShoLo', source: 'euronews', title: 'Israël : Eisenkot convie le Likoud de Netanyahu à des négociations de coalition', tag: 'Monde' },
-    { id: 'aan2BVx7E8Q', source: 'franceinfo', title: 'Soudan : des enfants mis en danger par la malnutrition', tag: 'Monde' },
-    { id: 'AE1dJElrYfU', source: 'France Inter', title: 'Procès Zecler : les policiers qui l\'ont agressé « ont déshonoré leur badge »', tag: 'Justice' },
-    { id: 'IbYp44_1dng', source: 'RFI', title: 'États-Unis - Venezuela : coopération militaire ou mise sous tutelle ?', tag: 'Monde' },
-    { id: 'BYrd5ylHBOc', source: 'TV5MONDE Info', title: 'Bande de Gaza : un désastre sanitaire et environnemental', tag: 'Monde' }
+    { id: '6n5jULeT7pQ', source: 'franceinfo', title: 'Quel est le calendrier de l\'élection présidentielle ?', tag: 'Politique', story: 0 },
+    { id: 'E7GEwPDGXZ8', source: 'franceinfo', title: 'Dominique de Villepin : "Je ne veux pas rentrer dans une case"', tag: 'Politique', story: 0 },
+    { id: '9ZEEQMgsHeM', source: 'Libération', title: '"Des jeunes qui demandent un avenir meilleur"', tag: 'Société', story: 1 },
+    { id: '6tLYdyUmU5A', source: 'France 24', title: 'Jensen Huang de retour à la tête de Nvidia dans un volte-face inattendu', tag: 'Économie', story: 2 },
+    { id: 'ItuzQkICG_8', source: 'Le Monde', title: 'Volodymyr Zelensky revendique l\'attaque de deux bateaux russes en Libye', tag: 'Monde', story: 5 },
+    { id: 'YXv5ZagMf5w', source: 'euronews', title: 'L\'Ukraine publie des images de frappes contre deux navires russes au large de la Libye', tag: 'Monde', story: 5 },
+    { id: 'C5RKBc29LYE', source: 'France 24', title: 'Belgique : le pays en grève contre l\'austérité du gouvernement', tag: 'Europe' },
+    { id: 'q_40euQifz0', source: 'Brut', title: 'La COP31 vient de se terminer et c\'est un échec, on vous explique.', tag: 'Climat' },
+    { id: 'zee_SVMJYYE', source: 'franceinfo', title: 'L\'ONU échoue à interdire les robots tueurs', tag: 'Monde' },
+    { id: 'IbYp44_1dng', source: 'RFI', title: 'États-Unis-Venezuela : coopération militaire ou mise sous tutelle ?', tag: 'Monde' },
+    { id: 'BYrd5ylHBOc', source: 'TV5MONDE Info', title: 'Bande de Gaza : un désastre sanitaire et environnemental', tag: 'Monde' },
+    { id: 'AE1dJElrYfU', source: 'France Inter', title: 'Procès Zecler : les policiers qui l\'ont agressé "ont déshonoré leur badge"', tag: 'Justice' }
   ],
   memo: [
-    'Une révision constitutionnelle passe par le **Congrès (3/5 des suffrages exprimés)** ou par un **référendum** (article 89).',
-    'Présidentielle 2027 : premier tour le **18 avril**, second tour le **2 mai** (dates retenues par l\'exécutif, encore débattues).',
-    'L\'Ukraine a frappé des navires russes à **Benghazi**, en Libye, et des vidéos tournées en **Grèce** circulent comme fausses images de l\'attaque.',
-    'La COP31 a échoué sur la **mention des énergies fossiles** et sur le **financement climatique**.',
-    'Les stocks stratégiques de terres rares seront pilotés par la **Caisse des dépôts**, avec 2027 pour horizon.'
+    'Présidentielle 2027 : **500 parrainages** d\'élus pour être candidat ; premier tour prévu le **18 avril**.',
+    'Nvidia : Jensen Huang démissionne le **12 novembre**, est réintégré lundi 23 ; l\'action bondit de **31 %**.',
+    'Sanofi rachète l\'américain Insmed pour **37,6 milliards d\'euros** (finalisation au premier semestre 2027).',
+    'La CIJ a reconnu le **génocide des Rohingya** (19 novembre) ; 14 pays reconnaissent la décision.',
+    'L\'Arcom juge « inédit » le niveau d\'agressions contre des journalistes ; les influenceurs seront soumis au pluralisme.'
   ],
   lessons: [
     {
       title: 'Le quiz de la une', icon: '☕', desc: 'France', exercises: [
-        { t: 'qcm', q: 'Quel dispositif Emmanuel Macron envisage-t-il d\'inscrire dans la Constitution ?', c: ['Une « règle d\'or » budgétaire', 'Le retour au septennat', 'Le vote obligatoire', 'La proportionnelle intégrale'], a: 0, x: 'Il s\'agit de garantir un retour à l\'équilibre des finances publiques et de « calmer les marchés financiers », selon franceinfo.' },
-        { t: 'vf', q: 'Selon le projet, le gouvernement devrait faire adopter une loi-cadre d\'au moins trois ans de retour à l\'équilibre des comptes publics.', a: true, x: 'C\'est le cœur du dispositif décrit par franceinfo.' },
-        { t: 'qcm', q: 'Pour réviser la Constitution sans référendum, à quelle majorité le Congrès doit-il l\'approuver ?', c: ['3/5 des suffrages exprimés', 'Majorité simple', '2/3 des inscrits', 'Unanimité'], a: 0, x: 'C\'est l\'article 89. Le Congrès réunit les députés et les sénateurs à Versailles.' },
-        { t: 'qcm', q: 'Quel Premier ministre appelle au « compromis » budgétaire dans une lettre aux parlementaires ?', c: ['Sébastien Lecornu', 'François Bayrou', 'Gabriel Attal', 'Michel Barnier'], a: 0, x: 'Le budget de l\'État (PLF) et celui de la Sécurité sociale (PLFSS) ont été rejetés à l\'Assemblée nationale.' },
-        { t: 'qcm', q: 'À quelle date le premier tour de la présidentielle 2027 est-il prévu ?', c: ['18 avril', '10 avril', '25 avril', '2 mai'], a: 0, x: 'Le second tour est prévu le 2 mai. Ces dates font débat.' },
-        { t: 'qcm', q: 'Quel ancien Premier ministre, candidat à l\'Élysée, promet de convoquer le Congrès au lendemain de son élection ?', c: ['Dominique de Villepin', 'Lionel Jospin', 'Jean-Pierre Raffarin', 'Alain Juppé'], a: 0, x: 'Il veut former un « gouvernement de mission » avec l\'accord des parlementaires.' },
-        { t: 'qcm', q: 'Qui pilotera la constitution de stocks stratégiques de terres rares ?', c: ['La Caisse des dépôts', 'La Banque de France', 'Le CNRS', 'L\'Agence de l\'innovation de défense'], a: 0, x: 'Elle doit consulter les industriels des secteurs stratégiques.' },
-        { t: 'vf', q: 'Le programme de stocks de terres rares s\'inspire des réserves stratégiques de pétrole.', a: true, x: 'L\'objectif est de réduire la dépendance à la Chine d\'ici à 2027.' },
-        { t: 'qcm', q: 'Selon la Cour des comptes, quelle part des assurés peut partir à la retraite avant l\'âge légal ?', c: ['Près d\'un sur deux', 'Un sur dix', 'Un sur vingt', 'Presque tous'], a: 0, x: 'D\'où sa recommandation de revoir les dispositifs de départ anticipé.' },
-        { t: 'vf', q: 'Lundi soir, le Pas-de-Calais était encore en vigilance rouge pour les crues.', a: false, x: 'La vigilance **orange** a été levée lundi soir et la Canche est passée en jaune. La préfecture prévient qu\'« il reste beaucoup à faire ».' }
+        { t: 'qcm', q: 'Combien de parrainages d\'élus faut-il réunir pour se présenter à la présidentielle ?', c: ['500', '100', '250', '1 000'], a: 0, x: 'Les prétendants se pressent au congrès des maires, le plus grand rassemblement d\'élus locaux d\'Europe, pour les récolter.' },
+        { t: 'qcm', q: 'À quelle date le premier tour de la présidentielle est-il prévu ?', c: ['18 avril', '4 avril', '25 avril', '2 mai'], a: 0, x: 'La course s\'annonce particulièrement disputée à moins de cinq mois du scrutin.' },
+        { t: 'vf', q: 'Dominique de Villepin a officialisé sa candidature à la présidentielle vendredi.', a: true, x: 'Il est le dernier en date à entrer dans la course.' },
+        { t: 'qcm', q: 'Quel est le montant du rachat de l\'américain Insmed par Sanofi ?', c: ['37,6 milliards d\'euros', '3,76 milliards d\'euros', '12 milliards d\'euros', '76 milliards d\'euros'], a: 0, x: 'C\'est l\'une des plus grosses acquisitions de Sanofi, qui doit être finalisée au premier semestre 2027.' },
+        { t: 'vf', q: 'Les épargnants ont retiré près de 10 milliards d\'euros de leur Livret A depuis janvier.', a: true, x: 'C\'est un record depuis dix ans. Le taux pourrait passer de 1,7 % à 2,8 % en février.' },
+        { t: 'qcm', q: 'Qui pilotera la constitution de stocks stratégiques de terres rares ?', c: ['La Caisse des dépôts', 'La Banque de France', 'Le CNRS', 'L\'Agence de l\'innovation de défense'], a: 0, x: 'Elle consultera les industriels des secteurs stratégiques, avec l\'horizon 2027 pour réduire la dépendance à la Chine.' },
+        { t: 'qcm', q: 'Selon la Cour des comptes, quelle part des assurés peut toucher sa pension avant l\'âge légal ?', c: ['Près d\'un sur deux', 'Un sur dix', 'Un sur vingt', 'Presque tous'], a: 0, x: 'La Cour recommande de revoir ces dispositifs pour garantir la soutenabilité du système par répartition.' },
+        { t: 'match', q: 'Associe chaque acteur à son actualité', pairs: [['Valérie Pécresse', 'Ouverture de la ligne 18 « très compromise »'], ['Xavier Niel', 'Reprise de « 60 millions de consommateurs »'], ['Banque de France', 'Relance des billets de 5 euros'], ['Stellantis', 'Retrait de toutes les compétitions automobiles']], x: 'Quatre sujets économiques du lundi 23 novembre, à savoir resituer rapidement.' },
+        { t: 'vf', q: 'Dans l\'enquête sur le déraillement du TER en Normandie, la garde à vue des quatre hommes peut durer jusqu\'à 96 heures.', a: true, x: 'Un morceau de rail avait été découvert sur les voies après l\'accident, qui avait fait 44 blessés.' }
       ]
     },
     {
-      title: 'Le tour du monde', icon: '🌍', desc: 'International', exercises: [
-        { t: 'qcm', q: 'Où l\'Ukraine a-t-elle attaqué deux navires russes ?', c: ['Au large de Benghazi, en Libye', 'En mer Noire, près d\'Odessa', 'Dans le port de Tartous, en Syrie', 'En mer Baltique'], a: 0, x: 'L\'attaque, revendiquée par Volodymyr Zelensky, vise la logistique russe en Méditerranée.' },
-        { t: 'vf', q: 'Les autorités de l\'est libyen ont porté plainte auprès de l\'ONU pour violation de leur souveraineté.', a: true, x: 'Elles réclament aussi des explications à Kiev.' },
-        { t: 'qcm', q: 'Sur quel point les négociations de la COP31 ont-elles surtout buté ?', c: ['La mention de la sortie des énergies fossiles', 'Le choix de la ville hôte de la prochaine COP', 'La protection des océans', 'Le nucléaire'], a: 0, x: 'Plus d\'une centaine de pays ont refusé une déclaration sans cette mention. Il n\'y a pas eu non plus d\'avancée sur le financement.' },
-        { t: 'qcm', q: 'Quelle minorité la CIJ a-t-elle reconnue victime d\'un génocide commis par la Birmanie ?', c: ['Les Rohingya', 'Les Ouïghours', 'Les Karens', 'Les Kurdes'], a: 0, x: '14 pays, dont le Royaume-Uni, l\'Espagne, le Canada et l\'Australie, reconnaissent cette décision.' },
-        { t: 'qcm', q: 'Jensen Huang vient d\'être réintégré à la tête de quelle entreprise ?', c: ['Nvidia', 'Intel', 'TSMC', 'Apple'], a: 0, x: 'Son retour intervient une dizaine de jours après sa démission et après des appels répétés de Donald Trump.' },
-        { t: 'qcm', q: 'De quoi la société singapourienne Megaspeed est-elle soupçonnée ?', c: ['D\'avoir fourni des puces Nvidia à la Chine malgré l\'embargo', 'D\'avoir piraté le Pentagone', 'D\'avoir financé une campagne électorale', 'D\'avoir fraudé le fisc singapourien'], a: 0, x: 'Le département américain du Commerce l\'a placée sur liste noire avec ses filiales.' },
-        { t: 'match', q: 'Associe chaque pays à son actualité', pairs: [['Espagne', 'Carles Puigdemont définitivement blanchi'], ['Belgique', 'Grève contre l\'austérité du gouvernement De Wever'], ['Royaume-Uni', 'Andy Burnham défend son accord avec l\'UE'], ['Turquie', 'Le PKK évacue 14 bases dans le nord de l\'Irak']], x: 'Le processus de paix entre Ankara et le PKK a commencé en 2024. Le conflit a fait environ 50 000 morts en quatre décennies.' },
-        { t: 'qcm', q: 'Qu\'espère voir António Guterres d\'ici un an ?', c: ['Un cadre multilatéral de gestion des risques liés à l\'IA', 'Un nouveau membre permanent au Conseil de sécurité', 'Un cessez-le-feu au Soudan', 'Un traité sur les océans'], a: 0, x: 'Le secrétaire général de l\'ONU a lancé cet appel lundi aux États membres.' },
-        { t: 'vf', q: 'Au Soudan, l\'armée accuse les Forces de soutien rapide d\'avoir lancé une attaque de drone depuis l\'Éthiopie.', a: true, x: 'La frappe a visé un bâtiment de l\'ONU, ce qui accroît les tensions internationales.' }
+      title: 'Le tour du monde', icon: '🌍', desc: 'International et Europe', exercises: [
+        { t: 'qcm', q: 'De combien l\'action Nvidia a-t-elle bondi en Bourse après le retour de Jensen Huang ?', c: ['31 %', '3 %', '12 %', '50 %'], a: 0, x: 'Il avait été poussé à la démission le 12 novembre, avant d\'être réintégré lundi.' },
+        { t: 'qcm', q: 'De quel pays est la société Megaspeed, placée sur liste noire par Washington ?', c: ['Singapour', 'Taïwan', 'Corée du Sud', 'Malaisie'], a: 0, x: 'Elle est soupçonnée d\'avoir fourni des puces Nvidia à la Chine en contournant l\'embargo.' },
+        { t: 'vf', q: 'Les vidéos présentées sur les réseaux comme l\'attaque de Benghazi ont été prises en Grèce il y a plusieurs mois.', a: true, x: 'Ce sont d\'anciennes images détournées : un grand classique de l\'infox en temps de guerre.' },
+        { t: 'qcm', q: 'Quelle minorité la CIJ a-t-elle reconnue victime d\'un génocide commis par la Birmanie ?', c: ['Les Rohingya', 'Les Ouïghours', 'Les Karens', 'Les Kurdes'], a: 0, x: 'L\'arrêt date du 19 novembre. Quatorze pays, dont le Royaume-Uni, l\'Espagne, le Canada et l\'Australie, reconnaissent la décision.' },
+        { t: 'qcm', q: 'Quelle ville ukrainienne a été visée par des frappes russes dans la nuit, faisant au moins deux morts ?', c: ['Zaporijjia', 'Lviv', 'Tchernihiv', 'Poltava'], a: 0, x: 'Plus de 30 blessés ont été recensés, dont quatre mineurs.' },
+        { t: 'qcm', q: 'Quelle nationalité a le premier astronaute étranger à se rendre dans la station spatiale chinoise ?', c: ['Pakistanaise', 'Indienne', 'Russe', 'Brésilienne'], a: 0, x: 'Muhammad Zeeshan Ali dit emporter « les espoirs de 250 millions de Pakistanais ».' },
+        { t: 'match', q: 'Associe chaque pays à son actualité', pairs: [['Yémen', 'Frappes saoudiennes contre des autocars et des camions'], ['Iran', 'Flagellation de la chanteuse Parastoo Ahmadi'], ['Soudan', 'Frappe de drone contre un bâtiment de l\'ONU'], ['Colombie', 'Dix ans après l\'accord de paix avec les ex-FARC']], x: 'Quatre dossiers internationaux du moment, du Moyen-Orient à l\'Amérique latine.' },
+        { t: 'qcm', q: 'Que demande Antonio Guterres aux États membres de l\'ONU d\'ici l\'année prochaine ?', c: ['Un cadre multilatéral de gestion des risques liés à l\'IA', 'Un cessez-le-feu au Soudan', 'Une réforme du Conseil de sécurité', 'Un traité sur les océans'], a: 0, x: 'Il propose de commencer par des mesures de sécurité communes et un système d\'évaluation.' }
       ]
     },
     {
       title: 'Médias & atelier', icon: '🎙️', desc: 'Médias + écriture', exercises: [
-        { t: 'qcm', q: 'Sur quoi l\'Arcom vient-elle d\'alerter ?', c: ['Un niveau « préoccupant » et « inédit » d\'agressions visant les journalistes', 'La baisse des audiences de la radio', 'La fin de la TNT', 'Le coût de l\'audiovisuel public'], a: 0, x: 'Ce sont des agressions et des intimidations. C\'est un sujet à relier à la liberté de la presse.' },
-        { t: 'qcm', q: 'Le Parlement a définitivement adopté une loi pour mieux rémunérer la presse au titre…', c: ['des droits voisins', 'du droit de réponse', 'de la clause de conscience', 'du dépôt légal'], a: 0, x: 'Les droits voisins permettent aux éditeurs d\'être payés quand les plateformes réutilisent leurs contenus.' },
-        { t: 'vf', q: 'Pour la présidentielle 2027, les créateurs de contenu auront des obligations de pluralisme.', a: true, x: 'C\'est un signe de leur poids croissant dans l\'accès à l\'information politique.' },
-        { t: 'qcm', q: 'Quel quotidien vient « à son tour » de signer un accord avec OpenAI ?', c: ['Le Figaro', 'Libération', 'L\'Humanité', 'La Croix'], a: 0, x: 'Plusieurs éditeurs ont déjà passé ce type d\'accords de licence avec des entreprises d\'IA.' },
-        { t: 'qcm', q: 'D\'après France 24, d\'où viennent les vidéos présentées sur les réseaux comme l\'attaque de Benghazi ?', c: ['De Grèce, il y a plusieurs mois', 'D\'Ukraine, la veille', 'De Libye, en direct', 'D\'un jeu vidéo'], a: 0, x: 'Ce sont des images anciennes, sorties de leur contexte. C\'est le grand classique de l\'infox en temps de guerre.' },
+        { t: 'qcm', q: 'Sur quoi l\'Arcom alerte-t-elle ?', c: ['Un niveau « préoccupant » et « inédit » d\'agressions visant des journalistes', 'La baisse des audiences de la radio', 'La fin de la TNT', 'Le coût de l\'audiovisuel public'], a: 0, x: 'Des dizaines de journalistes ont été blessés depuis le début des mobilisations. C\'est un sujet à relier à la liberté de la presse.' },
+        { t: 'qcm', q: 'Quel magazine de défense des consommateurs passe sous pavillon de Xavier Niel ?', c: ['60 millions de consommateurs', 'Que Choisir', 'Capital', 'Challenges'], a: 0, x: 'L\'offre a été validée par l\'État : vingt-neuf salariés conservent leur emploi, une vingtaine seront licenciés.' },
+        { t: 'qcm', q: 'De quelle année date la directive européenne à l\'origine des droits voisins ?', c: ['2019', '2009', '2014', '2022'], a: 0, x: 'Ces droits permettent aux éditeurs et aux agences d\'être rémunérés quand Google ou Meta utilisent leurs contenus. Le Parlement vient d\'adopter définitivement une loi pour mieux les faire appliquer.' },
+        { t: 'vf', q: 'Pour la présidentielle 2027, les influenceurs et podcasteurs qui reçoivent des politiques devront respecter des règles de temps de parole et de déontologie.', a: true, x: 'L\'Arcom l\'a annoncé jeudi 19 novembre : les créateurs de contenu sont désormais traités comme les télévisions et les radios.' },
+        { t: 'qcm', q: 'Que s\'est-il passé pour la chaîne d\'opposition turque Sözcü TV ?', c: ['Un administrateur nommé par le gouvernement a été placé à sa tête', 'Elle a été rachetée par un groupe européen', 'Elle a remporté un prix de journalisme', 'Elle a déménagé à Berlin'], a: 0, x: 'Ses bureaux ont été perquisitionnés et plusieurs dirigeants arrêtés. Des milliers de personnes ont manifesté à Istanbul.' },
         { t: 'order', q: 'Remets dans l\'ordre les étapes de la vérification d\'une vidéo virale', items: ['Retrouver la première publication', 'Faire une recherche d\'image inversée', 'Géolocaliser et dater la scène', 'Contacter l\'auteur ou des témoins', 'Publier en expliquant la méthode'], x: 'On remonte à la source, on recoupe, on situe, on confirme, puis on publie de façon transparente.' },
-        { t: 'qcm', q: 'Que s\'est-il passé pour la chaîne d\'opposition turque Sözcü TV ?', c: ['Un administrateur nommé par le gouvernement a été placé à sa tête', 'Elle a été rachetée par un groupe européen', 'Elle a remporté un prix de journalisme', 'Elle a déménagé à Berlin'], a: 0, x: 'Ses bureaux ont été perquisitionnés et des dirigeants arrêtés. Des milliers de personnes ont manifesté à Istanbul.' },
-        { t: 'write', q: 'Titre cette dépêche (12 mots maximum)', src: 'Emmanuel Macron a annoncé lundi que la France allait se doter de « stocks stratégiques » de terres rares et de métaux prioritaires, sur le modèle des réserves stratégiques de pétrole. Piloté par la Caisse des dépôts, le projet vise à réduire la dépendance du pays à la Chine d\'ici à 2027.', model: 'Terres rares : la France va constituer des stocks pour moins dépendre de la Chine', crit: ['12 mots maximum', 'L\'information principale (les stocks) est claire', 'L\'enjeu (la dépendance à la Chine) apparaît', 'Un verbe ou une structure « Sujet : info » efficace'] },
-        { t: 'write', q: 'Rédige l\'attaque (première phrase) d\'un article sur l\'échec de la COP31', src: 'Faits : la COP31 s\'est achevée sans accord final · les pays pétroliers ont refusé la mention de la sortie des énergies fossiles · plus de 100 pays ont refusé d\'adopter le texte sans elle · pas d\'avancée sur le financement climatique.', model: 'Sans un mot sur les énergies fossiles, pas d\'accord : la COP31 s\'est achevée sur un échec, plus d\'une centaine de pays refusant le texte que voulaient imposer les producteurs de pétrole.', crit: ['L\'information principale (l\'échec) figure dans la phrase', 'La cause (les énergies fossiles) est donnée', 'Une seule phrase, qui reste lisible', 'Ton factuel, sans opinion'] }
+        { t: 'write', q: 'Titre cette dépêche (12 mots maximum)', src: 'Le groupe pharmaceutique français Sanofi va racheter l\'américain Insmed pour 37,6 milliards d\'euros. La transaction, l\'une des plus grosses acquisitions réalisées par Sanofi, devrait être finalisée au premier semestre 2027.', model: 'Sanofi rachète l\'américain Insmed pour 37,6 milliards d\'euros', crit: ['12 mots maximum', 'L\'information principale (le rachat) est claire', 'Le montant ou l\'acteur clé apparaît', 'Un verbe d\'action au présent'] },
+        { t: 'write', q: 'Rédige l\'attaque (première phrase) d\'un article sur le retour de Jensen Huang chez Nvidia', src: 'Faits : Jensen Huang avait démissionné le 12 novembre après la révélation d\'une relation avec une femme soupçonnée de transmettre des informations aux services secrets chinois · le conseil d\'administration l\'a réintégré lundi · l\'action Nvidia a bondi de 31 % · Donald Trump avait appelé à son retour.', model: 'Dix jours après avoir démissionné à la suite d\'un scandale d\'espionnage présumé, Jensen Huang a été réintégré lundi à la tête de Nvidia, dont l\'action a aussitôt bondi de 31 %.', crit: ['L\'information principale (la réintégration) figure dans la phrase', 'Le contexte (la démission et le scandale) est rappelé', 'Une seule phrase, qui reste lisible', 'Ton factuel, sans opinion'] }
       ]
     }
   ]
