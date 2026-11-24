@@ -1,3 +1,4 @@
+// SCOOP:REGENERER  (marqueur : la prochaine routine remplace cette édition par une version à jour)
 /* Scoop — édition du 2026-11-24 (actualité du lundi 23 novembre 2026) */
 window.SCOOP_DAYS = window.SCOOP_DAYS || {};
 window.SCOOP_DAYS['2026-11-24'] = {
