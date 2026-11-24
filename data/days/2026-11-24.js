@@ -1,3 +1,4 @@
+// SCOOP:REGENERER  (6 questions hors brief + sources non recoupées : à refaire)
 /* Scoop — édition du 2026-11-24 (actualité du lundi 23 et du mardi 24 novembre 2026) */
 window.SCOOP_DAYS = window.SCOOP_DAYS || {};
 window.SCOOP_DAYS['2026-11-24'] = {

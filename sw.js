@@ -1,9 +1,9 @@
 /* Scoop — service worker : appli installable + hors ligne
    - éditions (data/days/*) : réseau d'abord (pour avoir l'actu fraîche), cache en secours
    - reste de l'appli : réseau d'abord aussi, cache en secours hors ligne */
-const VERSION = 'scoop-v4';
+const VERSION = 'scoop-v5';
 const SHELL = [
-  './', './index.html', './css/style.css', './js/app.js', './data/units.js', './manifest.webmanifest',
+  './', './index.html', './css/style.css', './js/app.js', './data/units.js', './data/culture.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'
 ];
 

@@ -18,7 +18,10 @@ $channels = [ordered]@{
   'euronews'         = 'UCW2QcKZiU8aUGg4yxCIditg'
   'France Inter'     = 'UCJldRgT_D7Am-ErRHQZ90uw'
   'Mediapart'        = 'UCdnaDhU-LDQrIEEmSIfq0-Q'
-  'Ouest-France'     = 'UC9RF7WHBH7VFS8iFoFF9KWg'
+  'Le Parisien'      = 'UCfHn_8-ehdem86fEvlFg-Gw'
+  'TF1 INFO'         = 'UCsrPUA0ZSDCNZC6wyRlR7ZA'
+  'LCI'              = 'UCewhc0fvja891XkpIPGRMxQ'
+  'France Culture'   = 'UCd5DKToXYTKAQ6khzewww2g'
 }
 
 $since = (Get-Date).ToUniversalTime().AddHours(-$Hours)

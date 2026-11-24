@@ -27,6 +27,10 @@ CHANNELS = [
     ("euronews", "UCW2QcKZiU8aUGg4yxCIditg"),
     ("France Inter", "UCJldRgT_D7Am-ErRHQZ90uw"),
     ("Mediapart", "UCdnaDhU-LDQrIEEmSIfq0-Q"),
+    ("Le Parisien", "UCfHn_8-ehdem86fEvlFg-Gw"),
+    ("TF1 INFO", "UCsrPUA0ZSDCNZC6wyRlR7ZA"),
+    ("LCI", "UCewhc0fvja891XkpIPGRMxQ"),
+    ("France Culture", "UCd5DKToXYTKAQ6khzewww2g"),
 ]
 NS = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015"}
 UA = "Mozilla/5.0 (compatible; ScoopNewsBot/1.0)"

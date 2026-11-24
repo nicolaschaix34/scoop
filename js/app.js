@@ -116,6 +116,8 @@
 
   // ---------- Données ----------
   const UNITS = window.SCOOP_UNITS || [];
+  const CULTURE = window.SCOOP_CULTURE || [];
+  const findUnit = id => UNITS.find(x => x.id === id) || CULTURE.find(x => x.id === id);
   const DAYS = {};
   let INDEX = [];        // [{date, title}] du plus récent au plus ancien
   let CURRENT = null;    // date de l'édition affichée par défaut
@@ -141,7 +143,7 @@
   function lessonFromKey(key) {
     const [kind, a, b] = key.split(':');
     if (kind === 'unit') {
-      const u = UNITS.find(x => x.id === a); const l = u && u.lessons[+b];
+      const u = findUnit(a); const l = u && u.lessons[+b];
       if (!l) return null;
       return { key, mode: 'unit', title: l.title, color: u.color, exercises: l.exercises, context: u.title };
     }
@@ -149,6 +151,12 @@
       const d = DAYS[a]; const l = d && d.lessons[+b];
       if (!l) return null;
       return { key, mode: 'day', date: a, title: l.title, color: '#E63946', exercises: l.exercises, context: `Édition du ${frDate(a)}`, bonus: a === TODAY ? 20 : 0 };
+    }
+    if (kind === 'cgmix') {
+      const pool = CULTURE.flatMap(u => u.lessons.flatMap((l, li) => l.exercises.map((ex, ei) => ({ ex, id: `unit:${u.id}:${li}:${ei}` }))));
+      const pick = shuffle(pool).slice(0, 10);
+      if (!pick.length) return null;
+      return { key, mode: 'review', title: 'Quiz éclair', color: '#9D4EDD', exercises: pick.map(p => p.ex), ids: pick.map(p => p.id), context: 'Culture G' };
     }
     if (kind === 'review') {
       const items = shuffle(S.review).slice(0, 10);
@@ -220,6 +228,18 @@
       </button>`;
     }).join('')}</div>`;
   }
+  // Sources d'une info : nouveau format `sources: [{name, url}]`, ou ancien `source` + `link`
+  function storySources(s) {
+    if (Array.isArray(s.sources) && s.sources.length) return s.sources.filter(x => x && x.name);
+    return String(s.source || '').split(',').map(n => n.trim()).filter(Boolean).map((name, i) => ({ name, url: i === 0 ? s.link : '' }));
+  }
+  function sourcesBlock(s) {
+    const list = storySources(s), ok = list.length >= 2;
+    return `<div class="story-foot">
+      <span class="verif ${ok ? 'ok' : ''}">${ok ? `✓ Recoupé par ${list.length} sources` : 'Source unique'}</span>
+      ${list.map(x => x.url && /^https?:\/\//.test(x.url) ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)} ↗</a>` : `<span>${esc(x.name)}</span>`).join('')}
+    </div>`;
+  }
   const wordCard = w => w ? `<div class="word"><div class="kicker">Le mot du jour</div><h3>${esc(w.term)}</h3><p>${rich(w.def)}</p></div>` : '';
 
   function viewHome() {
@@ -251,9 +271,16 @@
       html += `<div class="hero"><div class="kicker">Édition du jour</div><h1>Pas encore d'édition</h1><p class="muted">Lance la mise à jour quotidienne (voir README) pour générer la première édition. En attendant, le parcours concours est disponible ci-dessous.</p></div>`;
     }
 
-    html += `<h2 class="section-title">Parcours concours</h2><p class="section-sub">Culture générale, médias, droit, écriture, langue : les fondamentaux des concours d'écoles de journalisme.</p>`;
+    html += `<h2 class="section-title">Parcours concours</h2><p class="section-sub">Institutions, médias, droit, écriture, langue : les fondamentaux des concours d'écoles de journalisme. Pour l'histoire, les arts et les idées, va dans l'onglet <a href="#/culture">Culture G</a>.</p>`;
+    html += unitsPath(UNITS);
+    return html;
+  }
+
+  // Parcours d'unités en chemin (réutilisé par le parcours concours et la Culture G)
+  function unitsPath(units) {
+    let html = '';
     const offs = [0, 46, 72, 46, 0, -46, -72, -46];
-    UNITS.forEach((u, ui) => {
+    units.forEach((u, ui) => {
       const doneCount = u.lessons.filter((_, i) => lessonState(`unit:${u.id}:${i}`)).length;
       let firstOpen = u.lessons.findIndex((_, i) => !lessonState(`unit:${u.id}:${i}`));
       html += `<section class="unit" style="--u:${esc(u.color)}">
@@ -276,6 +303,21 @@
     return html;
   }
 
+  function viewCulture() {
+    const all = CULTURE.flatMap(u => u.lessons.map((_, i) => `unit:${u.id}:${i}`));
+    const done = all.filter(k => lessonState(k)).length;
+    const nq = CULTURE.reduce((n, u) => n + u.lessons.reduce((m, l) => m + l.exercises.length, 0), 0);
+    return `<div class="kicker" style="color:#9D4EDD">Culture générale</div>
+      <h1 style="font-size:34px;margin:8px 0 6px">Culture G</h1>
+      <p class="muted">Histoire, géographie, arts, sciences, idées : le socle de l'épreuve de culture générale et du QCM d'actualité. ${CULTURE.length} thèmes, ${nq} questions, ${done}/${all.length} leçons terminées.</p>
+      <button class="cg-quick" data-start="cgmix">
+        <span class="cg-quick-ico">⚡</span>
+        <span><b>Quiz éclair</b><br><small>10 questions au hasard, tous thèmes confondus</small></span>
+        <span class="cg-quick-go">▶</span>
+      </button>
+      ${unitsPath(CULTURE)}`;
+  }
+
   async function viewDay(date) {
     date = date || CURRENT;
     if (!date) return `<div class="empty"><div class="big">🗞️</div><h2>Aucune édition</h2><p class="muted">La première édition apparaîtra après la mise à jour quotidienne.</p></div>`;
@@ -294,7 +336,7 @@
           <h3>${esc(s.title)}</h3>
           <p>${rich(s.text)}</p>
           ${s.why ? `<div class="why"><b>🎯 Pour le concours :</b> ${rich(s.why)}</div>` : ''}
-          <div class="story-foot"><span>Source : ${esc(s.source)}</span>${s.link ? `<a href="${esc(s.link)}" target="_blank" rel="noopener">Lire l'article ↗</a>` : ''}</div>
+          ${sourcesBlock(s)}
         </div>`).join('')}
       </div>
       ${day.memo && day.memo.length ? `<div class="card memo"><div class="kicker">À retenir</div><ul>${day.memo.map(m => `<li>${rich(m)}</li>`).join('')}</ul></div>` : ''}
@@ -416,6 +458,7 @@
     switch (view) {
       case 'day': html = await viewDay(arg); break;
       case 'review': html = viewReview(); break;
+      case 'culture': html = viewCulture(); break;
       case 'archive': html = viewArchive(); break;
       case 'profile': html = viewProfile(); break;
       default: html = viewHome();
@@ -430,7 +473,7 @@
 
   // ---------- Fiche d'unité ----------
   function openGuide(id) {
-    const u = UNITS.find(x => x.id === id); if (!u) return;
+    const u = findUnit(id); if (!u) return;
     $('#modal-inner').innerHTML = `
       <div class="modal-head"><div class="kicker" style="color:${esc(u.color)}">Fiche de révision</div><button class="icon-btn" data-close aria-label="Fermer">✕</button></div>
       <h2>${esc(u.icon)} ${esc(u.title)}</h2>
@@ -505,7 +548,10 @@
   function showEx() {
     const it = L.queue[L.pos];
     updateProgress();
-    const body = $('#ex');
+    // Conteneur neuf à chaque exercice : sinon les écouteurs de clic des exercices précédents
+    // (association, remise en ordre) restent attachés et interceptent les clics du suivant.
+    const old = $('#ex'), body = old.cloneNode(false);
+    old.replaceWith(body);
     body.className = 'ex'; void body.offsetWidth; body.classList.add('anim');
     body.innerHTML = '';
     L.state = 'answer';
@@ -828,11 +874,11 @@
           <h2>${esc(s.title)}</h2>
           <p>${rich(s.text)}</p>
           ${s.why ? `<div class="f-why">🎯 ${rich(s.why)}</div>` : ''}
-          <div class="f-src">Source : ${esc(s.source)}</div>
+          <div class="f-src">${(() => { const l = storySources(s); return l.length >= 2 ? `✓ Recoupé par ${l.length} sources : ${l.map(x => esc(x.name)).join(' · ')}` : `Source : ${esc(l.map(x => x.name).join(', '))}`; })()}</div>
         </div>
         <div class="f-rail">
           <button class="f-act ${sv ? 'on' : ''}" data-save="${it.i}" aria-pressed="${sv}"><span>🔖</span><small>${sv ? 'Gardée' : 'Garder'}</small></button>
-          ${s.link ? `<a class="f-act" href="${esc(s.link)}" target="_blank" rel="noopener"><span>↗</span><small>Source</small></a>` : ''}
+          ${(() => { const u = (storySources(s).find(x => x.url) || {}).url; return u ? `<a class="f-act" href="${esc(u)}" target="_blank" rel="noopener"><span>↗</span><small>Source</small></a>` : ''; })()}
         </div>
       </section>`;
     }
@@ -967,7 +1013,7 @@
     const s = F.day.stories[i], key = savedKey(F.date, i);
     const at = S.saved.findIndex(x => x.key === key);
     if (at >= 0) S.saved.splice(at, 1);
-    else S.saved.push({ key, date: F.date, title: s.title, tag: s.tag, source: s.source, link: s.link || '' });
+    else { const l = storySources(s); S.saved.push({ key, date: F.date, title: s.title, tag: s.tag, source: l.map(x => x.name).join(', '), link: (l.find(x => x.url) || {}).url || '' }); }
     save();
     const b = $(`[data-save="${i}"]`, $('#f-track')), on = at < 0;
     if (b) { b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); $('small', b).textContent = on ? 'Gardée' : 'Garder'; }
