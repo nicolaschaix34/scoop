@@ -2,108 +2,27 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Scoop · L'actu chaque jour</title>
-  <meta name="description" content="Suis l'actualité chaque jour et prépare les concours des écoles de journalisme, leçon après leçon.">
-  <meta name="theme-color" content="#E63946">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Scoop">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23E63946'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' font-weight='900' text-anchor='middle' fill='white'%3ES%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scoop a déménagé</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://scoopfr.github.io/">
+  <meta http-equiv="refresh" content="0; url=https://scoopfr.github.io/">
+  <script>
+    // Redirection immédiate vers la nouvelle adresse, en gardant la page demandée (#/feed, #/prepa…)
+    location.replace('https://scoopfr.github.io/' + (location.hash || ''));
+  </script>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #FBF8F1; color: #1B1B1F; font: 17px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; text-align: center; padding: 24px; }
+    a { color: #E63946; font-weight: 700; }
+    @media (prefers-color-scheme: dark) { body { background: #131316; color: #F3F0E8; } }
+  </style>
 </head>
 <body>
-  <div class="app">
-    <!-- Barre latérale (desktop) / barre d'onglets (mobile) -->
-    <nav class="nav" aria-label="Navigation principale">
-      <a class="logo" href="#/home" aria-label="Scoop, accueil">
-        <span class="logo-mark">S</span><span class="logo-text">scoop<span class="logo-dot">.</span></span>
-      </a>
-      <a class="nav-link" data-nav="home" href="#/home"><span class="ni">🏠</span><span>Parcours</span></a>
-      <a class="nav-link" data-nav="feed" href="#/feed"><span class="ni">🎬</span><span>Le fil</span></a>
-      <a class="nav-link" data-nav="day" href="#/day"><span class="ni">📰</span><span>Le brief</span></a>
-      <a class="nav-link" data-nav="culture" href="#/culture"><span class="ni">🧠</span><span>Culture</span></a>
-      <a class="nav-link" data-nav="prepa" href="#/prepa"><span class="ni">🎯</span><span>Prépa</span></a>
-      <a class="nav-link" data-nav="review" href="#/review"><span class="ni">🔁</span><span>À revoir</span><span class="nav-badge" id="review-badge" hidden></span></a>
-      <a class="nav-link nav-desk" data-nav="archive" href="#/archive"><span class="ni">🗂️</span><span>Archives</span></a>
-      <a class="nav-link" data-nav="profile" href="#/profile"><span class="ni">👤</span><span>Profil</span></a>
-    </nav>
-
-    <div class="main-col">
-      <header class="topbar" id="topbar"></header>
-      <main id="view" class="view" tabindex="-1">
-        <div class="empty" id="boot-msg"><div class="big">🗞️</div><h2>Chargement de l'édition…</h2></div>
-        <noscript><div class="empty"><h2>JavaScript est désactivé</h2><p>Active-le dans les réglages de ton navigateur pour utiliser Scoop.</p></div></noscript>
-      </main>
-    </div>
-
-    <aside class="rail" id="rail" aria-label="Progression"></aside>
-  </div>
-
-  <!-- Écran de leçon -->
-  <section id="lesson" class="lesson" hidden aria-live="polite">
-    <header class="lesson-head">
-      <button class="icon-btn" id="lesson-close" aria-label="Quitter la leçon">✕</button>
-      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="progress-fill"></i></div>
-      <span class="combo" id="combo" hidden></span>
-    </header>
-    <div class="lesson-body"><div id="ex" class="ex"></div></div>
-    <footer class="checkbar" id="checkbar">
-      <div class="checkbar-inner">
-        <div class="fb" id="fb">
-          <div class="fb-icon" id="fb-icon"></div>
-          <div class="fb-content">
-            <div class="fb-title" id="fb-title"></div>
-            <div class="fb-sol" id="fb-sol"></div>
-            <div class="fb-text" id="fb-text"></div>
-          </div>
-        </div>
-        <div class="checkbar-actions">
-          <button class="btn ghost" id="skip">Je ne sais pas</button>
-          <button class="btn primary" id="check" disabled>Valider</button>
-        </div>
-      </div>
-    </footer>
-  </section>
-
-  <!-- Le fil : format vertical type Shorts -->
-  <section id="feed" class="feed" hidden aria-label="Le fil du jour">
-    <header class="f-head">
-      <button class="f-close" id="f-close" aria-label="Fermer le fil">✕</button>
-      <div class="f-prog"><i id="f-prog"></i></div>
-      <span class="f-xp" id="f-xp">⚡ 0</span>
-    </header>
-    <div class="f-track" id="f-track"></div>
-  </section>
-
-  <dialog id="modal" class="modal">
-    <div class="modal-inner" id="modal-inner"></div>
-  </dialog>
-
-  <canvas id="confetti" aria-hidden="true"></canvas>
-
-  <script>
-    /* Filet de sécurité (ES5) : si l'appli n'a pas démarré après 6 s, on explique pourquoi */
-    window.onerror = function (m) { window.__scoopErr = m; };
-    setTimeout(function () {
-      if (window.__scoopReady) return;
-      var el = document.getElementById('boot-msg'); if (!el) return;
-      el.innerHTML = '<div class="big">😕</div><h2>Scoop n\'a pas pu démarrer</h2>' +
-        '<p>Ton navigateur est sans doute trop ancien, ou tu es dans le navigateur intégré d\'une appli (Instagram, Snapchat…).</p>' +
-        '<p style="margin-top:12px">Ouvre le lien dans <b>Chrome</b> ou <b>Safari</b> à jour, et vérifie qu\'il est écrit en minuscules : <b>nicolaschaix34.github.io/scoop/</b></p>' +
-        (window.__scoopErr ? '<p style="margin-top:12px;font-size:12px;opacity:.6">Détail : ' + String(window.__scoopErr).replace(/</g, '&lt;') + '</p>' : '');
-    }, 6000);
-  </script>
-  <!-- ?v= : à incrémenter quand on modifie ces fichiers (évite le mélange ancienne/nouvelle version) -->
-  <script src="data/units.js?v=6"></script>
-  <script src="data/culture.js?v=6"></script>
-  <script src="data/prepa.js?v=6"></script>
-  <script src="js/app.js?v=6"></script>
+  <main>
+    <p style="font-size:48px;margin:0">🗞️</p>
+    <h1 style="font-family:Georgia,serif">Scoop a déménagé</h1>
+    <p>La nouvelle adresse est <a href="https://scoopfr.github.io/">scoopfr.github.io</a>.</p>
+    <p style="font-size:14px;opacity:.7">Si tu avais installé l'appli sur ton écran d'accueil, supprime l'ancienne icône et réinstalle-la depuis la nouvelle adresse.</p>
+  </main>
 </body>
 </html>
