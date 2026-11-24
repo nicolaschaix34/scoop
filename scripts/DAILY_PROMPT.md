@@ -6,7 +6,8 @@ Ce fichier est la consigne qu'exécute la tâche planifiée chaque matin (ou que
 
 1. Détermine la date du jour au format `AAAA-MM-JJ` (fuseau Europe/Paris). Si `data/days/<date>.js` existe déjà, arrête-toi.
 2. Lance la récupération des titres :
-   `powershell -ExecutionPolicy Bypass -File scripts\fetch-news.ps1`
+   - sous Linux ou macOS (routine cloud) : `python3 scripts/fetch_news.py` (et plus loin `python3 scripts/fetch_shorts.py`)
+   - sous Windows : `powershell -ExecutionPolicy Bypass -File scripts\fetch-news.ps1` (et `scripts\fetch-shorts.ps1`)
 3. Lis `scripts/news-today.txt`. **N'utilise que les faits présents dans ce fichier**, sans rien inventer ni compléter de mémoire (ta connaissance de l'actualité récente n'est pas fiable). Si un fait n'y figure pas, ne l'écris pas.
 4. Choisis 8 à 10 sujets en équilibrant les thèmes : politique française, international, Europe, économie, climat ou sciences, médias (il en faut toujours au moins un : c'est le cœur des concours), société et culture. Laisse de côté les faits divers sans portée générale.
 5. Écris `data/days/<date>.js` en suivant **exactement** la structure de `data/days/2026-11-24.js` :
