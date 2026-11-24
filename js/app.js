@@ -25,7 +25,7 @@
   // ---------- État persistant ----------
   const STORE = 'scoop.v1';
   const DEFAULT = {
-    xp: 0, streak: 0, best: 0, last: null, daily: {}, lessons: {}, review: [], saved: [],
+    xp: 0, streak: 0, best: 0, last: null, daily: {}, lessons: {}, review: [], saved: [], prepa: {},
     stats: { answered: 0, correct: 0, lessons: 0 },
     settings: { name: '', goal: 50, exam: '', sound: true, theme: 'auto' }
   };
@@ -117,7 +117,9 @@
   // ---------- Données ----------
   const UNITS = window.SCOOP_UNITS || [];
   const CULTURE = window.SCOOP_CULTURE || [];
-  const findUnit = id => UNITS.find(x => x.id === id) || CULTURE.find(x => x.id === id);
+  const PREPA = window.SCOOP_PREPA || null;
+  const PREPA_UNITS = window.SCOOP_PREPA_UNITS || [];
+  const findUnit = id => UNITS.find(x => x.id === id) || CULTURE.find(x => x.id === id) || PREPA_UNITS.find(x => x.id === id);
   const DAYS = {};
   let INDEX = [];        // [{date, title}] du plus récent au plus ancien
   let CURRENT = null;    // date de l'édition affichée par défaut
@@ -151,6 +153,14 @@
       const d = DAYS[a]; const l = d && d.lessons[+b];
       if (!l) return null;
       return { key, mode: 'day', date: a, title: l.title, color: '#E63946', exercises: l.exercises, context: `Édition du ${frDate(a)}`, bonus: a === TODAY ? 20 : 0 };
+    }
+    if (kind === 'oral' && PREPA) {
+      // Simulateur d'oral : 5 questions de jury au hasard, en exercices d'écriture auto-évalués
+      const pick = shuffle(PREPA.oral).slice(0, 5);
+      return {
+        key, mode: 'drill', title: 'Simulateur d\'oral', color: '#E63946', context: 'Prépa concours',
+        exercises: pick.map(o => ({ t: 'write', q: `🎤 Le jury : « ${o.q} »`, src: 'Note les grandes lignes de ta réponse (ou réponds à voix haute, puis résume-la ici). Vise environ 2 minutes à l\'oral.', model: o.tip, crit: o.keys }))
+      };
     }
     if (kind === 'cgmix') {
       const pool = CULTURE.flatMap(u => u.lessons.flatMap((l, li) => l.exercises.map((ex, ei) => ({ ex, id: `unit:${u.id}:${li}:${ei}` }))));
@@ -318,6 +328,96 @@
       ${unitsPath(CULTURE)}`;
   }
 
+  // ---------- Prépa concours ----------
+  const PREPA_TABS = [['plan', '🗺️', 'Plan'], ['ecoles', '🏫', 'Écoles'], ['methode', '🧭', 'Méthode'], ['oral', '🎤', 'Oral'], ['metier', '📡', 'Le métier'], ['conseils', '💬', 'Conseils'], ['quiz', '🧠', 'Quiz']];
+  const srcLinks = list => (list && list.length) ? `<div class="p-src">Sources : ${list.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} ↗</a>`).join(' · ')}</div>` : '';
+
+  function viewPrepa(tab) {
+    if (!PREPA) return `<div class="empty"><h2>Prépa indisponible</h2></div>`;
+    tab = PREPA_TABS.some(t => t[0] === tab) ? tab : 'plan';
+    const checks = (S.prepa && S.prepa.checks) || {};
+    const nDone = PREPA.checklist.filter(c => checks[c.id]).length;
+    let html = `<div class="kicker">Prépa concours</div>
+      <h1 style="font-size:34px;margin:8px 0 6px">Objectif admission</h1>
+      <p class="muted">Les écoles, les épreuves, l'oral et le métier : tout ce qu'il faut pour maximiser tes chances. Infos vérifiées le ${esc(PREPA.updated)}, avec les sources à chaque bloc.</p>
+      <nav class="p-tabs" aria-label="Rubriques de la prépa">${PREPA_TABS.map(([id, ico, label]) => `<a class="p-tab ${id === tab ? 'on' : ''}" href="#/prepa/${id}">${ico} ${label}</a>`).join('')}</nav>`;
+
+    if (tab === 'plan') {
+      let exam = '';
+      if (S.settings.exam && DATE_RE.test(S.settings.exam)) {
+        const d = Math.round((parseYmd(S.settings.exam) - parseYmd(TODAY)) / 864e5);
+        if (d >= 0) exam = `<div class="p-count"><b>J-${d}</b> avant ton premier concours</div>`;
+      }
+      html += `<div class="card p-hero">
+          ${exam || `<p class="muted" style="font-size:14px">Ajoute la date de ton premier concours dans <a href="#/profile">Profil</a> pour afficher le compte à rebours.</p>`}
+          <div class="p-progress"><div><b>${nDone}/${PREPA.checklist.length}</b> étapes de ton plan</div><div class="bar"><i style="width:${Math.round(nDone / PREPA.checklist.length * 100)}%"></i></div></div>
+        </div>
+        <div class="p-quick">
+          <button class="p-qbtn" data-start="oral"><span>🎤</span><b>Simulateur d'oral</b><small>5 questions de jury</small></button>
+          <a class="p-qbtn" href="#/prepa/ecoles"><span>🏫</span><b>Les 16 écoles</b><small>dates, frais, épreuves</small></a>
+          <a class="p-qbtn" href="#/prepa/quiz"><span>🧠</span><b>Quiz prépa</b><small>écoles, métier, méthode</small></a>
+        </div>
+        <h2 class="section-title" style="font-size:22px">Mon plan de prépa</h2>
+        <p class="section-sub">Coche au fur et à mesure : c'est enregistré sur ton appareil.</p>
+        <div class="p-checks">${PREPA.checklist.map(c => `<label class="crit p-check ${checks[c.id] ? 'done' : ''}"><input type="checkbox" data-pcheck="${esc(c.id)}" ${checks[c.id] ? 'checked' : ''}><span>${rich(c.text)}</span></label>`).join('')}</div>
+        ${guideCard(PREPA.guides.find(g => g.id === 'planning'), true)}`;
+    }
+    if (tab === 'ecoles') {
+      html += `<div class="banner">ℹ️ <span>${rich(PREPA.schoolsNote)}</span></div>
+        <div class="p-schools">${PREPA.schools.map(s => `
+          <details class="p-school">
+            <summary><span class="p-sname">${esc(s.short)}</span><span class="p-scity">${esc(s.city)}</span><span class="p-sfee">${esc(s.fee)}</span></summary>
+            <div class="p-sbody">
+              <div class="p-sfull">${esc(s.name)}</div>
+              <dl>
+                <dt>Diplôme</dt><dd>${esc(s.diploma)}</dd>
+                <dt>Niveau d'entrée</dt><dd>${esc(s.level)}</dd>
+                <dt>Inscriptions 2026</dt><dd>${esc(s.reg)}</dd>
+                <dt>Écrits / dossier</dt><dd>${esc(s.written)}</dd>
+                <dt>Oraux 2026</dt><dd>${esc(s.oral)}</dd>
+                <dt>Frais de concours</dt><dd>${esc(s.fee)}</dd>
+              </dl>
+              ${s.note ? `<p class="p-snote">💡 ${rich(s.note)}</p>` : ''}
+            </div>
+          </details>`).join('')}</div>
+        ${srcLinks(PREPA.schoolsSources)}`;
+    }
+    if (tab === 'methode') {
+      html += PREPA.guides.filter(g => !['oral', 'planning'].includes(g.id)).map(g => guideCard(g)).join('');
+    }
+    if (tab === 'oral') {
+      html += `<button class="cg-quick" data-start="oral" style="background:linear-gradient(120deg,#E63946,#F4A261);box-shadow:0 5px 0 #B92B37">
+          <span class="cg-quick-ico">🎤</span><span><b>Lancer le simulateur d'oral</b><br><small>5 questions de jury au hasard, une proposition de réponse et une auto-évaluation</small></span><span class="cg-quick-go">▶</span></button>
+        ${guideCard(PREPA.guides.find(g => g.id === 'oral'), true)}
+        <h2 class="section-title" style="font-size:22px">Les questions qui reviennent</h2>
+        <div class="list">${PREPA.oral.map(o => `
+          <details class="p-q"><summary>${esc(o.q)}</summary><div class="p-qbody"><p>${rich(o.tip)}</p><ul>${o.keys.map(k => `<li>${esc(k)}</li>`).join('')}</ul></div></details>`).join('')}</div>`;
+    }
+    if (tab === 'metier') {
+      html += `<p class="section-sub" style="margin-top:18px">Des chiffres récents pour argumenter à l'oral et à l'écrit, chacun avec sa source.</p>
+        <div class="p-metier">${PREPA.metier.map(m => `
+          <div class="card p-mcard"><div class="p-mico">${m.icon}</div><div><h4>${esc(m.title)}</h4><p>${rich(m.text)}</p>
+          <div class="p-src"><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.source)} ↗</a></div></div></div>`).join('')}</div>`;
+    }
+    if (tab === 'conseils') {
+      html += `<div class="banner">🔎 <span>${rich(PREPA.voicesNote)}</span></div>
+        <div class="list">${PREPA.voices.map(v => `
+          <div class="card p-voice"><div class="p-vwho">${esc(v.who)}</div><div class="p-vrole">${esc(v.role)}</div>
+          <ul>${v.points.map(p => `<li>${rich(p)}</li>`).join('')}</ul>
+          <div class="p-src"><a href="${esc(v.url)}" target="_blank" rel="noopener">Lire la source ↗</a></div></div>`).join('')}</div>`;
+    }
+    if (tab === 'quiz') {
+      html += `<p class="section-sub" style="margin-top:18px">Teste tes connaissances sur les écoles, le métier et la méthode. Les leçons se débloquent dans l'ordre.</p>${unitsPath(PREPA_UNITS)}`;
+    }
+    return html;
+  }
+
+  function guideCard(g, open) {
+    if (!g) return '';
+    return `<details class="card p-guide" ${open ? 'open' : ''}><summary><span class="p-gico">${g.icon}</span>${esc(g.title)}</summary>
+      <ul>${g.points.map(p => `<li>${rich(p)}</li>`).join('')}</ul>${srcLinks(g.sources)}</details>`;
+  }
+
   async function viewDay(date) {
     date = date || CURRENT;
     if (!date) return `<div class="empty"><div class="big">🗞️</div><h2>Aucune édition</h2><p class="muted">La première édition apparaîtra après la mise à jour quotidienne.</p></div>`;
@@ -328,6 +428,7 @@
       <div class="kicker">Édition du ${esc(frDate(date, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }))}</div>
       <h1>${esc(day.title)}</h1>
       ${day.intro ? `<p class="lede">${rich(day.intro)}</p>` : ''}
+      <p style="margin-top:12px"><a class="btn small ghost" href="#/archive">🗂️ Toutes les éditions</a></p>
       ${wordCard(day.word)}
       <h2 class="section-title">Les ${day.stories.length} infos à connaître</h2>
       <div class="stories">${day.stories.map(s => `
@@ -387,6 +488,7 @@
     return `<div class="kicker">Profil</div>
       <h1 style="font-size:34px;margin:8px 0 4px">${esc(S.settings.name || 'Futur·e journaliste')}</h1>
       <p class="muted">${esc(lv.name)} · niveau ${lv.n} · ${S.xp} XP</p>
+      <p style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><a class="btn small ghost" href="#/archive">🗂️ Archives et infos gardées</a><a class="btn small ghost" href="#/prepa">🎯 Ma prépa</a></p>
 
       <div class="grid2" style="margin-top:20px">
         <div class="card"><div class="big-num">🔥 ${streakNow()}</div><div class="muted" style="font-size:13px">jours d'affilée (record : ${S.best})</div></div>
@@ -459,6 +561,7 @@
       case 'day': html = await viewDay(arg); break;
       case 'review': html = viewReview(); break;
       case 'culture': html = viewCulture(); break;
+      case 'prepa': html = viewPrepa(arg); break;
       case 'archive': html = viewArchive(); break;
       case 'profile': html = viewProfile(); break;
       default: html = viewHome();
@@ -489,6 +592,16 @@
     if (s && !s.disabled) { e.preventDefault(); startLesson(s.dataset.start); return; }
     const g = e.target.closest('[data-guide]');
     if (g) { openGuide(g.dataset.guide); return; }
+    const pc = e.target.closest('[data-pcheck]');
+    if (pc) {
+      S.prepa = S.prepa || {}; S.prepa.checks = S.prepa.checks || {};
+      S.prepa.checks[pc.dataset.pcheck] = pc.checked; save();
+      pc.closest('.p-check').classList.toggle('done', pc.checked);
+      if (pc.checked) sfx.pair();
+      const n = PREPA.checklist.filter(c => S.prepa.checks[c.id]).length, prog = $('.p-progress');
+      if (prog) { $('b', prog).textContent = `${n}/${PREPA.checklist.length}`; $('i', prog).style.width = `${Math.round(n / PREPA.checklist.length * 100)}%`; }
+      return;
+    }
     const u = e.target.closest('[data-unsave]');
     if (u) { S.saved = S.saved.filter(x => x.key !== u.dataset.unsave); save(); route(); return; }
     if (e.target.closest('[data-close]') || e.target === $('#modal')) { const m = $('#modal'); if (typeof m.close === 'function') m.close(); else m.removeAttribute('open'); }
