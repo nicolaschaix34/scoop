@@ -997,7 +997,7 @@
   window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; refreshInstall(); });
   window.addEventListener('appinstalled', () => { installEvt = null; refreshInstall(); });
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(() => {}));
   }
   function installCard() {
     if (isStandalone() || !location.protocol.startsWith('http')) return '';

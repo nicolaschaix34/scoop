@@ -1,7 +1,7 @@
 /* Scoop — service worker : appli installable + hors ligne
    - éditions (data/days/*) : réseau d'abord (pour avoir l'actu fraîche), cache en secours
    - reste de l'appli : réseau d'abord aussi, cache en secours hors ligne */
-const VERSION = 'scoop-v3';
+const VERSION = 'scoop-v4';
 const SHELL = [
   './', './index.html', './css/style.css', './js/app.js', './data/units.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'
@@ -42,8 +42,9 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Coquille de l'appli : réseau d'abord (toujours à jour), cache si hors ligne
-  e.respondWith(fetch(req).then(res => {
+  // Coquille de l'appli : réseau d'abord (toujours à jour), cache si hors ligne.
+  // cache:'no-cache' force la revalidation auprès du serveur (GitHub Pages met 10 min de cache HTTP).
+  e.respondWith(fetch(new Request(req.url, { cache: 'no-cache', credentials: 'same-origin' })).then(res => {
     if (res.ok) { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); }
     return res;
   }).catch(() => caches.match(req, { ignoreSearch: true })));
