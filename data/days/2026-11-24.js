@@ -1,154 +1,184 @@
-// SCOOP:REGENERER  (6 questions hors brief + sources non recoupées : à refaire)
 /* Scoop — édition du 2026-11-24 (actualité du lundi 23 et du mardi 24 novembre 2026) */
 window.SCOOP_DAYS = window.SCOOP_DAYS || {};
 window.SCOOP_DAYS['2026-11-24'] = {
   date: '2026-11-24',
-  title: 'Huang de retour chez Nvidia, course à l\'Élysée, lycéens mobilisés',
-  intro: 'Le patron de Nvidia retrouve son fauteuil dix jours après avoir démissionné, la course à la présidentielle s\'accélère au congrès des maires et les lycées tentent de reprendre les cours. Voici les infos à maîtriser ce mardi.',
+  title: "Huang de retour chez Nvidia, Nahel : procès pour meurtre, COP31 en échec",
+  intro: "Le patron de Nvidia retrouve son poste sous la pression de Donald Trump, la justice ordonne un procès pour meurtre dans l'affaire Nahel et l'Ukraine frappe des navires russes jusqu'en Libye. Voici les infos de la veille à maîtriser.",
   word: {
-    term: 'Parrainage (présidentielle)',
-    def: 'Pour se présenter à l\'élection présidentielle, un candidat doit réunir **500 parrainages** d\'élus (maires, parlementaires, conseillers…). Cette étape filtre les candidatures avant le scrutin : c\'est pourquoi le **congrès des maires**, plus grand rassemblement d\'élus locaux d\'Europe, est un passage obligé pour les prétendants. La liste des parrainages est ensuite contrôlée par le **Conseil constitutionnel**.'
+    term: "Cour de cassation",
+    def: "C'est la plus haute juridiction de l'ordre judiciaire. Elle ne rejuge pas les faits : elle vérifie que la loi a été bien appliquée et peut casser, c'est-à-dire annuler, une décision. Dans l'affaire Nahel, elle avait annulé un arrêt de la cour d'appel, ce qui a conduit à un nouvel examen du dossier."
   },
   tagColors: { 'Politique': '#3A86FF', 'Climat': '#2B9348', 'Monde': '#0FA3B1', 'Économie': '#F4A261', 'Médias': '#E63946', 'Justice': '#8E44AD', 'Europe': '#4361EE', 'Société': '#D6336C' },
   stories: [
     {
-      tag: 'Politique',
-      title: 'Congrès des maires : les prétendants à l\'Élysée en quête de parrainages',
-      text: 'Le **congrès des maires de France** s\'ouvre sur fond de course à la présidentielle. Pour les prétendants en quête des **500 parrainages** nécessaires, il est difficile de faire l\'impasse sur le plus grand rassemblement d\'élus locaux d\'Europe. Des protestations entourent la double candidature de **David Lisnard**. À moins de cinq mois du premier tour, prévu le **18 avril**, **Dominique de Villepin**, qui a officialisé sa candidature vendredi, est le dernier entré dans la course.',
-      why: 'Révise les conditions de candidature à la présidentielle (500 parrainages, contrôle par le Conseil constitutionnel) et le rôle des maires.',
-      source: 'Le Monde, France 24',
-      link: 'https://www.lemonde.fr/politique/article/2026/11/24/le-congres-des-maires-de-france-s-ouvre-sur-fond-de-course-a-la-presidentielle-et-de-protestations-autour-de-la-double-candidature-de-david-lisnard_6814718_823448.html'
-    },
-    {
-      tag: 'Société',
-      title: 'Mouvement lycéen : une reprise des cours « délicate et précaire »',
-      text: 'Face à une situation « tendue et volatile », des proviseurs tentent de rouvrir leur établissement et de **reconstruire de l\'unité**. Certains lycées reprennent en petits effectifs, d\'autres organisent des rencontres entre lycéens ou avec les parents d\'élèves : chaque établissement teste sa propre recette. Partout en Europe, des centaines de milliers de jeunes manifestent depuis vendredi pour leur avenir et contre la vie chère, en dénonçant la hausse des budgets militaires.',
-      why: 'Un sujet de société à traiter avec recul : mobilisation de la jeunesse, vie chère, rôle des établissements scolaires.',
-      source: 'Le Monde, France 24',
-      link: 'https://www.lemonde.fr/societe/article/2026/11/24/mouvement-lyceen-la-delicate-et-precaire-reprise-des-cours-dans-les-etablissements-les-plus-mobilises_6814703_3224.html'
-    },
-    {
       tag: 'Économie',
-      title: 'Nvidia : Jensen Huang réintégré, Washington durcit sa lutte contre la contrebande de puces',
-      text: 'Poussé à la démission le **12 novembre** après la révélation d\'une relation extraconjugale avec une femme soupçonnée de transmettre des informations aux services secrets chinois, **Jensen Huang** a été réintégré lundi par le conseil d\'administration de Nvidia. Son retour, après des appels répétés de **Donald Trump**, a provoqué un bond de **31 %** de l\'action en Bourse. Dans le même temps, le ministère américain du Commerce a placé sur liste noire la société singapourienne **Megaspeed** et ses filiales, soupçonnées d\'avoir fourni des puces Nvidia à la Chine malgré l\'embargo. Singapour assure coopérer avec Washington.',
-      why: 'C\'est le volet technologique de la rivalité sino-américaine : contrôle des exportations de puces, embargo et poids des marchés financiers.',
-      source: 'Le Monde, France 24',
-      link: 'https://www.lemonde.fr/economie/article/2026/11/24/le-come-back-spectaculaire-de-jensen-huang-a-la-tete-de-nvidia-sous-la-pression-de-donald-trump-et-des-marches-financiers_6814669_3234.html'
-    },
-    {
-      tag: 'Économie',
-      title: 'La France va créer des stocks stratégiques de terres rares',
-      text: 'L\'Élysée annonce un projet de « **stocks stratégiques** » de minerais critiques et de métaux prioritaires, inspiré des réserves stratégiques de pétrole. L\'objectif est de sécuriser l\'approvisionnement et de **réduire la dépendance à la Chine d\'ici à 2027**. La **Caisse des dépôts** pilotera le projet et consultera les industriels des secteurs stratégiques utilisant ces matières premières.',
-      why: 'C\'est l\'enjeu de la souveraineté industrielle et des approvisionnements critiques.',
-      source: 'Le Monde, France 24',
-      link: 'https://www.lemonde.fr/economie/article/2026/11/23/la-france-va-creer-des-stocks-strategiques-de-terres-rares-et-de-metaux-prioritaires-pour-reduire-sa-dependance-a-la-chine-d-ici-a-2027_6814452_3234.html'
-    },
-    {
-      tag: 'Économie',
-      title: 'Sanofi rachète Insmed, les épargnants quittent le Livret A',
-      text: 'Le groupe pharmaceutique français **Sanofi** va racheter l\'américain **Insmed** pour **37,6 milliards d\'euros**, l\'une de ses plus grosses acquisitions. L\'opération devrait être finalisée au premier semestre 2027. Côté épargne, les Français ont retiré près de **10 milliards d\'euros** de leur **Livret A** depuis janvier, un record depuis dix ans ; son taux pourrait passer de 1,7 % à 2,8 % en février. Enfin, la hausse des cours de l\'énergie tarde à se répercuter sur l\'ensemble des prix, car l\'activité est atone et le chômage remonte.',
-      why: 'Fusions-acquisitions, épargne réglementée et inflation : trois notions d\'économie à savoir expliquer simplement.',
-      source: 'Le Monde',
-      link: 'https://www.lemonde.fr/economie/article/2026/11/24/sanofi-groupe-pharmaceutique-francais-va-racheter-l-americain-insmed-pour-37-6-milliards-d-euros_6814719_3234.html'
+      title: "Nvidia : Jensen Huang réintégré sous la pression de Trump",
+      text: "Le conseil d'administration de Nvidia a réintégré lundi 23 novembre **Jensen Huang** comme directeur général, moins de deux semaines après sa démission du 12 novembre, liée à un scandale mêlant adultère et soupçons d'espionnage au profit de la Chine. Son retour a fait bondir l'action de plus de 30 % en Bourse. **Donald Trump** s'est attribué le mérite de ce retour, ce qui suscite des critiques : des parlementaires démocrates annoncent des enquêtes et des républicains s'interrogent sur un risque pour la sécurité nationale. Le ministère américain du Commerce a par ailleurs placé sur liste noire la société singapourienne **Megaspeed**, soupçonnée d'avoir fourni des puces Nvidia à la Chine en contournant l'embargo américain.",
+      why: "La rivalité technologique entre les États-Unis et la Chine passe par le contrôle des exportations de puces (embargo). Un conseil d'administration nomme et révoque le directeur général d'une société : ici, il est revenu sur sa décision sous la pression d'un président et des marchés.",
+      sources: [
+        { name: 'Le Monde', url: 'https://www.lemonde.fr/economie/article/2026/11/24/le-come-back-spectaculaire-de-jensen-huang-a-la-tete-de-nvidia-sous-la-pression-de-donald-trump-et-des-marches-financiers_6814669_3234.html' },
+        { name: 'RFI', url: 'https://www.rfi.fr/fr/am%C3%A9riques/20261123-nvidia-annonce-la-r%C3%A9int%C3%A9gration-de-jensen-huang-comme-pdg-deux-semaines-apr%C3%A8s-son-d%C3%A9part' },
+        { name: 'France 24', url: 'https://www.france24.com/fr/%C3%A9co-tech/20261123-megaspeed-societe-singapour-scandale-nvidia-placee-liste-noire-etats-unis-chine' },
+        { name: 'Radio-Canada', url: 'https://ici.radio-canada.ca/article/info/2302507/trump-nvidia-huang-retour-photomontage-reactions' }
+      ]
     },
     {
       tag: 'Monde',
-      title: 'Ukraine : l\'attaque de Benghazi attise les tensions, Zaporijjia sous les frappes',
-      text: 'Après l\'attaque ukrainienne contre un navire de guerre russe à **Benghazi**, en Libye, des publications sur les réseaux sociaux détournent d\'anciennes vidéos : elles ont été prises **en Grèce** il y a plusieurs mois. Le gouvernement libyen d\'union nationale, basé à Tripoli, a réclamé des explications à Kiev. Sur le front, des frappes russes sur la ville de **Zaporijjia** ont fait au moins deux morts et plus de 30 blessés dans la nuit, dont quatre mineurs.',
-      why: 'Cas d\'école de vérification : une vidéo recyclée se détecte par recherche d\'image inversée et géolocalisation.',
-      source: 'France 24, Le Monde',
-      link: 'https://www.france24.com/fr/%C3%A9missions/info-ou-intox/20261123-l-attaque-ukrainienne-%C3%A0-benghazi-attise-les-tensions-en-libye-et-en-m%C3%A9diterran%C3%A9e'
+      title: "L'Ukraine frappe deux navires russes au port de Benghazi, en Libye",
+      text: "Dimanche 22 novembre, un cargo et une corvette russes ont été visés dans le port de **Benghazi**, fief du maréchal Khalifa Haftar dans l'est de la Libye, par des drones navals. Volodymyr Zelensky a revendiqué l'opération, qui a coulé la corvette selon le New York Times. Les autorités de l'Est libyen ont réclamé lundi à l'ONU une enquête sur la présence de forces ukrainiennes dans l'ouest du pays. Cette frappe étend la guerre jusqu'en Méditerranée.",
+      why: "Le maréchal **Khalifa Haftar** est un officier dissident parrainé par Moscou depuis près d'une décennie, ce qui explique la présence de navires russes à Benghazi. La Libye est divisée entre des autorités de l'Est et de l'Ouest (Tripoli).",
+      sources: [
+        { name: 'Libération', url: 'https://www.liberation.fr/international/afrique/en-frappant-des-navires-russes-en-libye-lukraine-sattaque-a-la-strategie-mediterraneenne-du-kremlin-20261124_NKBLWQ4NYRHZBAEYFINC5KQQCM/' },
+        { name: 'RFI', url: 'https://www.rfi.fr/fr/afrique/20261123-l-attaque-ukrainienne-en-large-de-benghazi-ravive-la-tension-entre-les-bellig%C3%A9rants-libyens' },
+        { name: 'The Guardian', url: 'https://www.theguardian.com/world/2026/nov/23/ukraine-naval-drones-strike-russian-warship-libya' },
+        { name: 'The New York Times', url: 'https://www.nytimes.com/2026/11/23/world/europe/ukraine-libya-russian-ships.html' }
+      ]
     },
     {
       tag: 'Justice',
-      title: 'Génocide des Rohingya : 14 pays reconnaissent la décision de la CIJ',
-      text: 'La **Cour internationale de justice** a jugé le **19 novembre** que la Birmanie a commis un génocide contre la minorité rohingya en 2017. Le Royaume-Uni, l\'Espagne, le Canada, l\'Australie et dix autres pays ont affirmé lundi reconnaître cette décision et exhortent la Birmanie à se « conformer pleinement à ses obligations ». Pour des juristes, cette jurisprudence pèse aussi dans le débat sur la qualification de génocide à Gaza.',
-      why: 'La CIJ juge les États, la Cour pénale internationale juge les individus : une distinction classique des concours.',
-      source: 'France 24, Le Monde',
-      link: 'https://www.france24.com/fr/asie-pacifique/20261123-birmanie-genocide-rohingya-14-pays-reconnaissent-decision-cij'
+      title: "Mort de Nahel : un procès pour meurtre ordonné contre le policier",
+      text: "Mardi 24 novembre, la cour d'appel de **Versailles** a ordonné que le policier qui a tué Nahel Merzouk, 17 ans, lors d'un contrôle routier à Nanterre en juin 2023, soit jugé pour **meurtre** devant la cour d'assises des Hauts-de-Seine. En mars, la cour d'appel avait requalifié les faits en violences ayant entraîné la mort sans intention de la donner, mais la Cour de cassation avait annulé cet arrêt. Le policier annonce vouloir se pourvoir en cassation.",
+      why: "Une cour d'assises juge les crimes. La Cour de cassation ne rejuge pas les faits : elle vérifie que la loi a été bien appliquée, d'où l'annulation d'un arrêt de la cour d'appel puis un nouvel examen.",
+      sources: [
+        { name: 'Le Monde', url: 'https://www.lemonde.fr/societe/article/2026/11/24/mort-de-nahel-la-cour-d-appel-de-versailles-ordonne-un-proces-pour-meurtre-a-l-encontre-du-policier_6814726_3224.html' },
+        { name: 'RFI', url: 'https://www.rfi.fr/fr/france/20261124-mort-de-nahel-en-2023-en-appel-la-justice-fran%C3%A7aise-ordonne-un-proc%C3%A8s-pour-meurtre-%C3%A0-l-encontre-du-policier' },
+        { name: 'Ouest-France', url: 'https://www.ouest-france.fr/societe/justice/mort-de-nahel-la-justice-ordonne-un-proces-pour-meurtre-a-lencontre-du-policier-qui-a-tire-sur-ladolescent-ee79b4ac-e7d8-11f1-9b33-2f81462d3339?utm_source=fluxpublicactu&utm_medium=fluxrss&utm_campaign=banquedecontenu' },
+        { name: 'Libération', url: 'https://www.liberation.fr/societe/police-justice/mort-de-nahel-merzouk-la-cour-dappel-de-versailles-ordonne-un-proces-pour-meurtre-contre-le-policier-qui-la-tue-20261124_HLTCW73RNRDUPJOWTA4ET4ZAEY/' }
+      ]
     },
     {
-      tag: 'Médias',
-      title: 'Journalistes agressés, « 60 millions de consommateurs » repris par Xavier Niel',
-      text: 'L\'**Arcom** alerte sur un niveau « préoccupant » et « inédit » d\'agressions et d\'intimidations visant des journalistes : des dizaines de cas de blessés par les forces de l\'ordre ou des manifestants ont été rapportés depuis le début des mobilisations. L\'offre de reprise du magazine **« 60 millions de consommateurs »** par **Xavier Niel** a été validée par l\'État : vingt-neuf salariés conserveront leur emploi, une vingtaine seront licenciés. Pour la présidentielle 2027, les **influenceurs et podcasteurs** recevant des responsables politiques devront respecter des règles de temps de parole et de déontologie. En Turquie, la chaîne d\'opposition **Sözcü TV** a vu ses bureaux perquisitionnés et un administrateur nommé par le gouvernement.',
-      why: 'Liberté de la presse, pluralisme, régulation par l\'Arcom et concentration des médias : des sujets d\'oral très probables.',
-      source: 'Le Monde (rubrique Médias)',
-      link: 'https://www.lemonde.fr/actualite-medias/article/2026/11/20/l-arcom-alerte-sur-le-niveau-preoccupant-des-agressions-et-intimidations-visant-des-journalistes-c-est-inedit-a-ce-degre-de-tension_6813605_3236.html'
+      tag: 'Politique',
+      title: "Congrès des maires : la présidentielle s'invite, Lisnard contesté",
+      text: "Le congrès de l'Association des maires de France (AMF) se tient du 24 au 26 novembre à Paris. Les candidats à la présidentielle s'y pressent, en particulier ceux en quête des **500 parrainages** nécessaires pour se présenter. La double candidature de **David Lisnard**, maire de Cannes, à la présidentielle et à la présidence de l'AMF suscite des protestations. Emmanuel Macron, qui avait promis en 2017 de s'y rendre chaque année, n'ira pas cette fois encore, selon Libération. Par ailleurs, les appels à modifier la date de la présidentielle, dont le second tour tombe le lendemain du 1er mai, se multiplient, relève Le Figaro.",
+      why: "Pour être candidat à la présidentielle, il faut recueillir 500 parrainages d'élus, dont beaucoup de maires : voilà pourquoi le congrès de l'AMF est un rendez-vous politique majeur.",
+      sources: [
+        { name: 'Le Monde', url: 'https://www.lemonde.fr/politique/article/2026/11/24/le-congres-des-maires-de-france-s-ouvre-sur-fond-de-course-a-la-presidentielle-et-de-protestations-autour-de-la-double-candidature-de-david-lisnard_6814718_823448.html' },
+        { name: 'France 24', url: 'https://www.france24.com/fr/france/20261124-ouverture-du-congr%C3%A8s-des-maires-sur-fond-de-bataille-pour-l-%C3%A9lys%C3%A9e' },
+        { name: 'Libération', url: 'https://www.liberation.fr/politique/comme-chaque-annee-ou-presque-macron-sechera-le-congres-de-lassemblee-des-maires-de-france-20261124_C6PWCIPLF5BXBMVAQEGS44U4Z4/' },
+        { name: 'Le Figaro', url: 'https://www.lefigaro.fr/politique/le-gouvernement-peut-il-encore-changer-la-date-de-l-election-presidentielle-20261123' }
+      ]
     },
     {
-      tag: 'Europe',
-      title: 'Europe : symboles russes, immatriculations et jeunesse mobilisée',
-      text: 'La **Commission européenne** veut « interdire l\'affichage des symboles russes » dans les compétitions sportives sur le sol de l\'Union et empêcher les Européens d\'occuper des postes dans les instances dirigeantes d\'entreprises en Russie. Côté marché, les immatriculations de voitures neuves dans l\'UE sont en hausse de **5,4 %** sur dix mois, soit **9,46 millions** de véhicules, les voitures électriques représentant presque le quart des ventes. De Berlin à Madrid, des centaines de milliers de jeunes ont manifesté contre la vie chère et le réarmement.',
-      why: 'Sanctions européennes, transition vers l\'électrique et mobilisations de la jeunesse : trois angles pour parler de l\'UE.',
-      source: 'Le Monde, France 24',
-      link: 'https://www.lemonde.fr/international/article/2026/11/23/l-union-europeenne-veut-interdire-l-affichage-des-symboles-russes-dans-les-competitions-sportives-sur-son-sol_6814445_3210.html'
+      tag: 'Climat',
+      title: "La COP31, à Antalya, s'achève sur un échec",
+      text: "La COP31, conférence des Nations unies sur le climat, s'est tenue à **Antalya**, en Turquie. Les pays réunis ont échoué à trouver un accord pour sortir des énergies fossiles. La Chine accuse les pays occidentaux de fuir leurs responsabilités en la tenant pour responsable de cet échec. Le journal turc Yeni Birlik, cité par Courrier international, déplore l'incapacité de certains dirigeants à « s'attaquer aux intérêts économiques et politiques ».",
+      why: "Les COP sont les conférences des parties à la convention-cadre de l'ONU sur le climat (1992). L'Accord de Paris date de la COP21, en 2015. Une décision y exige l'accord des États : un seul blocage peut faire échouer le texte.",
+      sources: [
+        { name: 'Courrier international', url: 'https://www.courrierinternational.com/article/vu-de-turquie-derriere-l-echec-de-la-cop31-l-incapacite-a-s-attaquer-aux-interets-economiques-et-politiques_289512' },
+        { name: 'France 24 English', url: 'https://www.france24.com/en/tv-shows/spotlight/20261124-collapse-of-cop31-this-deal-was-a-bad-deal-and-better-no-deal-than-a-bad-deal' }
+      ]
     },
     {
       tag: 'Monde',
-      title: 'Le monde en bref : peine de mort, astronaute pakistanais, drone au Soudan',
-      text: '**États-Unis** : Donald Trump demande au ministère de la Justice de requérir la peine de mort pour les meurtriers d\'enfants et dit avoir demandé d\'« accélérer l\'exécution des condamnations à mort fédérales ». **Chine** : le Pakistanais Muhammad Zeeshan Ali sera le premier astronaute étranger à se rendre dans la station spatiale chinoise ; l\'équipage décolle mercredi. **Soudan** : l\'armée accuse les Forces de soutien rapide d\'avoir lancé depuis l\'Éthiopie une frappe de drone contre un bâtiment de l\'ONU. **ONU** : Antonio Guterres souhaite un cadre multilatéral de gestion des risques liés à l\'IA d\'ici l\'année prochaine.',
-      source: 'Le Monde, France 24',
-      link: 'https://www.lemonde.fr/international/article/2026/11/24/donald-trump-demande-au-ministere-de-la-justice-de-requerir-la-peine-de-mort-pour-les-meurtriers-d-enfants_6814537_3210.html'
+      title: "Iran : 74 coups de fouet pour la chanteuse Parastoo Ahmadi",
+      text: "Les autorités iraniennes ont infligé lundi 23 novembre **74 coups de fouet** à la chanteuse **Parastoo Ahmadi**, 29 ans, ainsi qu'à des membres de son équipe, à Qom. Elle était condamnée pour avoir donné un concert sans voile, ce que son avocat a fait savoir mardi. France 24 la présente comme une figure du mouvement « Femme, vie, liberté ».",
+      why: "Les droits des femmes et la liberté d'expression sont des sujets classiques de géopolitique. « Femme, vie, liberté » est le slogan de la contestation iranienne contre l'obligation du voile.",
+      sources: [
+        { name: 'Ouest-France', url: 'https://www.ouest-france.fr/monde/iran/liran-a-inflige-74-coups-de-fouet-a-une-chanteuse-parastoo-ahmadi-pour-avoir-donne-un-concert-sans-voile-46a19754-e7e7-11f1-86c1-70195b4d2e52?utm_source=fluxpublicactu&utm_medium=fluxrss&utm_campaign=banquedecontenu' },
+        { name: 'Euronews', url: 'https://fr.euronews.com/2026/11/24/iran-la-chanteuse-parastoo-ahmadi-fouettee-pour-avoir-chante-sans-hijab' },
+        { name: 'BBC News', url: 'https://www.bbc.co.uk/news/articles/cq1j6585l5g6o?at_medium=RSS&at_campaign=rss' },
+        { name: 'France 24', url: 'https://www.france24.com/fr/%C3%A9missions/dans-la-presse/20261124-en-iran-74-coups-de-fouet-inflig%C3%A9s-%C3%A0-une-chanteuse-pour-atteinte-%C3%A0-la-d%C3%A9cence-publique' }
+      ]
+    },
+    {
+      tag: 'Économie',
+      title: "Livret A : près de 10 milliards d'euros retirés depuis janvier",
+      text: "Les épargnants ont retiré près de **10 milliards d'euros** de leur Livret A depuis janvier. Le Monde y voit un record depuis dix ans, tandis que Le Figaro précise que l'encours n'avait jamais autant reculé de janvier à octobre depuis que la **Caisse des dépôts** consolide les données, en 2008. Selon Le Monde, les discussions sur la hausse du plafond du livret, voulue par le gouvernement, sont toujours en cours.",
+      why: "Le Livret A est un placement réglementé dont le taux est encadré par les pouvoirs publics et dont les fonds sont centralisés par la Caisse des dépôts. Quand deux médias présentent un même chiffre différemment, on signale la divergence ou on ne garde que ce qui est commun.",
+      sources: [
+        { name: 'Le Monde', url: 'https://www.lemonde.fr/argent/article/2026/11/24/les-epargnants-ont-retire-pres-de-10-milliards-d-euros-de-leurs-livret-a-depuis-janvier-un-record-depuis-dix-ans_6814708_1657007.html' },
+        { name: 'Le Figaro', url: 'https://www.lefigaro.fr/conjoncture/inflation-pouvoir-d-achat-en-berne-le-livret-a-connait-sa-pire-annee-depuis-2008-20261124' }
+      ]
+    },
+    {
+      tag: 'Médias',
+      title: "Le retour de Huang étrillé : la presse internationale divisée",
+      text: "Le retour de Jensen Huang à Nvidia est étrillé par une partie de la presse. Dans sa revue de presse, *Le Temps* relaie des titres qui évoquent un « dangereux précédent » acté par « une bande d'incompétents » et une capitulation du conseil d'administration face à Donald Trump et aux investisseurs. *Courrier international* titre sur « un triomphe de l'argent sur la morale » : si les employés de Nvidia, les marchés financiers et la Silicon Valley se réjouissent, de nombreux parlementaires, y compris républicains, et une partie de la presse internationale déplorent ce retour.",
+      why: "La revue de presse est un texte qui compare comment plusieurs médias traitent un même sujet. Citer des titres entre guillemets permet de rendre compte des points de vue sans les endosser.",
+      sources: [
+        { name: 'Le Temps (Suisse)', url: 'https://www.letemps.ch/opinions/revues-de-presse/un-dangereux-precedent-acte-par-une-bande-d-incompetents-le-retour-de-jensen-huang-a-la-tete-de-nvidia-etrille-dans-la-presse' },
+        { name: 'Courrier international', url: 'https://www.courrierinternational.com/article/comeback-un-triomphe-de-l-argent-sur-la-morale-le-retour-de-jensen-huang-a-nvidia-ne-fait-pas-l-unanimite_289710' }
+      ]
+    },
+    {
+      tag: 'Europe',
+      title: "Hongrie : Péter Magyar attendu chez Zelensky en Transcarpatie",
+      text: "Le Premier ministre hongrois **Péter Magyar** doit s'entretenir mardi 24 novembre avec Volodymyr Zelensky et des représentants de la minorité hongroise, en Transcarpatie, dans l'ouest de l'Ukraine. Depuis son arrivée aux affaires en mai, il s'efforce de normaliser les relations avec Kiev, qui s'étaient considérablement dégradées sous le mandat de **Viktor Orban**.",
+      why: "Une minorité nationale est un groupe qui vit dans un État voisin de celui dont il partage la langue et la culture. Ici, la Transcarpatie ukrainienne abrite une minorité hongroise, enjeu des relations entre Budapest et Kiev.",
+      sources: [
+        { name: 'Le Monde', url: 'https://www.lemonde.fr/international/live/2026/11/24/en-direct-guerre-en-ukraine-le-hongrois-peter-magyar-va-rencontrer-volodymyr-zelensky-mardi-en-transcarpatie_6814183_3210.html' },
+        { name: 'AFP (via Le Figaro)', url: 'https://www.lefigaro.fr/international/ukraine-le-premier-ministre-hongrois-peter-magyar-attendu-mardi-pour-un-entretien-avec-zelensky-20261124' }
+      ]
+    },
+    {
+      tag: 'Société',
+      title: "47 000 femmes tuées par des proches dans le monde en 2025",
+      text: "Quelque **47 000 femmes et filles** ont été tuées par des proches en 2025 dans le monde, soit environ cinq par heure, selon l'ONU. Ce chiffre reste stable depuis plusieurs années, entre 45 000 et 51 000 victimes. Les femmes représentent 19 % des victimes d'homicides, mais 60 % d'entre elles ont été tuées dans la sphère privée, contre 11 % des hommes victimes d'homicide.",
+      why: "Ces chiffres, issus de l'ONU, servent à mesurer les violences faites aux femmes. En journalisme, on cite toujours l'organisme qui produit un chiffre : ici, l'ONU.",
+      sources: [
+        { name: 'Le Monde', url: 'https://www.lemonde.fr/societe/article/2026/11/24/feminicides-47-000-femmes-ont-ete-tuees-par-des-proches-dans-le-monde-en-2025-un-nombre-qui-n-evolue-pas_6814722_3224.html' },
+        { name: 'Le Temps (Suisse)', url: 'https://www.letemps.ch/monde/quelque-47-000-femmes-et-filles-tuees-par-des-proches-en-2025-dans-le-monde-selon-l-onu' }
+      ]
     }
   ],
-  // Vidéos courtes (YouTube Shorts de rédactions) ; "story" = index de l'info liée dans stories[]
   shorts: [
-    { id: '6n5jULeT7pQ', source: 'franceinfo', title: 'Quel est le calendrier de l\'élection présidentielle ?', tag: 'Politique', story: 0 },
-    { id: 'E7GEwPDGXZ8', source: 'franceinfo', title: 'Dominique de Villepin : "Je ne veux pas rentrer dans une case"', tag: 'Politique', story: 0 },
-    { id: '9ZEEQMgsHeM', source: 'Libération', title: '"Des jeunes qui demandent un avenir meilleur"', tag: 'Société', story: 1 },
-    { id: '6tLYdyUmU5A', source: 'France 24', title: 'Jensen Huang de retour à la tête de Nvidia dans un volte-face inattendu', tag: 'Économie', story: 2 },
-    { id: 'ItuzQkICG_8', source: 'Le Monde', title: 'Volodymyr Zelensky revendique l\'attaque de deux bateaux russes en Libye', tag: 'Monde', story: 5 },
-    { id: 'YXv5ZagMf5w', source: 'euronews', title: 'L\'Ukraine publie des images de frappes contre deux navires russes au large de la Libye', tag: 'Monde', story: 5 },
-    { id: 'C5RKBc29LYE', source: 'France 24', title: 'Belgique : le pays en grève contre l\'austérité du gouvernement', tag: 'Europe' },
-    { id: 'q_40euQifz0', source: 'Brut', title: 'La COP31 vient de se terminer et c\'est un échec, on vous explique.', tag: 'Climat' },
-    { id: 'zee_SVMJYYE', source: 'franceinfo', title: 'L\'ONU échoue à interdire les robots tueurs', tag: 'Monde' },
-    { id: 'IbYp44_1dng', source: 'RFI', title: 'États-Unis-Venezuela : coopération militaire ou mise sous tutelle ?', tag: 'Monde' },
-    { id: 'BYrd5ylHBOc', source: 'TV5MONDE Info', title: 'Bande de Gaza : un désastre sanitaire et environnemental', tag: 'Monde' },
-    { id: 'AE1dJElrYfU', source: 'France Inter', title: 'Procès Zecler : les policiers qui l\'ont agressé "ont déshonoré leur badge"', tag: 'Justice' }
+    { id: '27z_FzB3wrk', source: 'franceinfo', title: 'Nvidia annonce la réintégration de Jensen Huang comme PDG', tag: 'Économie', story: 0 },
+    { id: '6tLYdyUmU5A', source: 'France 24', title: 'Jensen Huang de retour à la tête de Nvidia dans un volte-face inattendu', tag: 'Économie', story: 0 },
+    { id: 'PCngqrZFLOg', source: 'Le Parisien', title: 'Nvidia : Jensen Huang acclamé à son retour, les bourses s\'envolent', tag: 'Économie', story: 0 },
+    { id: 'ItuzQkICG_8', source: 'Le Monde', title: 'Guerre en Ukraine : Volodymyr Zelensky revendique l\'attaque sur deux bateaux russes en Libye', tag: 'Monde', story: 1 },
+    { id: 'YXv5ZagMf5w', source: 'euronews', title: 'L\'Ukraine publie des images de frappes contre deux navires russes au large de la Libye', tag: 'Monde', story: 1 },
+    { id: '9dsFt7-hKBc', source: 'TV5MONDE Info', title: 'Libye - Attaque de Kiev sur deux navires russes', tag: 'Monde', story: 1 },
+    { id: 'vlJw_hFaGgU', source: 'franceinfo', title: 'Affaire Nahel Merzouk', tag: 'Justice', story: 2 },
+    { id: '6n5jULeT7pQ', source: 'franceinfo', title: 'Quel est le calendrier de l\'élection présidentielle ?', tag: 'Politique', story: 3 },
+    { id: 'q_40euQifz0', source: 'Brut', title: 'La COP31 vient de se terminer et c\'est un échec, on vous explique.', tag: 'Climat', story: 4 },
+    { id: 'GTXPgTGa_c8', source: 'France Inter', title: 'La fin de la #cop31 vue par la presse française', tag: 'Climat', story: 4 }
   ],
   memo: [
-    'Présidentielle 2027 : **500 parrainages** d\'élus pour être candidat ; premier tour prévu le **18 avril**.',
-    'Nvidia : Jensen Huang démissionne le **12 novembre**, est réintégré lundi 23 ; l\'action bondit de **31 %**.',
-    'Sanofi rachète l\'américain Insmed pour **37,6 milliards d\'euros** (finalisation au premier semestre 2027).',
-    'La CIJ a reconnu le **génocide des Rohingya** (19 novembre) ; 14 pays reconnaissent la décision.',
-    'L\'Arcom juge « inédit » le niveau d\'agressions contre des journalistes ; les influenceurs seront soumis au pluralisme.'
+    "**Jensen Huang** a été réintégré à la tête de Nvidia le **23 novembre**, onze jours après sa démission du 12 novembre ; la société singapourienne **Megaspeed** est sur liste noire américaine.",
+    "L'attaque contre un cargo et une corvette russes à **Benghazi** (Libye) date du **22 novembre** ; elle a été menée avec des drones navals.",
+    "Affaire Nahel : procès pour **meurtre** ordonné par la cour d'appel de Versailles, devant la **cour d'assises des Hauts-de-Seine** ; les faits datent de **juin 2023**.",
+    "Congrès des maires de France du **24 au 26 novembre** ; il faut **500 parrainages** pour être candidat à la présidentielle.",
+    "**47 000** femmes et filles tuées par des proches en 2025, soit environ **cinq par heure** (ONU).",
+    "Livret A : près de **10 milliards d'euros** retirés depuis janvier."
   ],
   lessons: [
     {
       title: 'Le quiz de la une', icon: '☕', desc: 'France', exercises: [
-        { t: 'qcm', q: 'Combien de parrainages d\'élus faut-il réunir pour se présenter à la présidentielle ?', c: ['500', '100', '250', '1 000'], a: 0, x: 'Les prétendants se pressent au congrès des maires, le plus grand rassemblement d\'élus locaux d\'Europe, pour les récolter.' },
-        { t: 'qcm', q: 'À quelle date le premier tour de la présidentielle est-il prévu ?', c: ['18 avril', '4 avril', '25 avril', '2 mai'], a: 0, x: 'La course s\'annonce particulièrement disputée à moins de cinq mois du scrutin.' },
-        { t: 'vf', q: 'Dominique de Villepin a officialisé sa candidature à la présidentielle vendredi.', a: true, x: 'Il est le dernier en date à entrer dans la course.' },
-        { t: 'qcm', q: 'Quel est le montant du rachat de l\'américain Insmed par Sanofi ?', c: ['37,6 milliards d\'euros', '3,76 milliards d\'euros', '12 milliards d\'euros', '76 milliards d\'euros'], a: 0, x: 'C\'est l\'une des plus grosses acquisitions de Sanofi, qui doit être finalisée au premier semestre 2027.' },
-        { t: 'vf', q: 'Les épargnants ont retiré près de 10 milliards d\'euros de leur Livret A depuis janvier.', a: true, x: 'C\'est un record depuis dix ans. Le taux pourrait passer de 1,7 % à 2,8 % en février.' },
-        { t: 'qcm', q: 'Qui pilotera la constitution de stocks stratégiques de terres rares ?', c: ['La Caisse des dépôts', 'La Banque de France', 'Le CNRS', 'L\'Agence de l\'innovation de défense'], a: 0, x: 'Elle consultera les industriels des secteurs stratégiques, avec l\'horizon 2027 pour réduire la dépendance à la Chine.' },
-        { t: 'qcm', q: 'Selon la Cour des comptes, quelle part des assurés peut toucher sa pension avant l\'âge légal ?', c: ['Près d\'un sur deux', 'Un sur dix', 'Un sur vingt', 'Presque tous'], a: 0, x: 'La Cour recommande de revoir ces dispositifs pour garantir la soutenabilité du système par répartition.' },
-        { t: 'match', q: 'Associe chaque acteur à son actualité', pairs: [['Valérie Pécresse', 'Ouverture de la ligne 18 « très compromise »'], ['Xavier Niel', 'Reprise de « 60 millions de consommateurs »'], ['Banque de France', 'Relance des billets de 5 euros'], ['Stellantis', 'Retrait de toutes les compétitions automobiles']], x: 'Quatre sujets économiques du lundi 23 novembre, à savoir resituer rapidement.' },
-        { t: 'vf', q: 'Dans l\'enquête sur le déraillement du TER en Normandie, la garde à vue des quatre hommes peut durer jusqu\'à 96 heures.', a: true, x: 'Un morceau de rail avait été découvert sur les voies après l\'accident, qui avait fait 44 blessés.' }
+        { t: 'qcm', q: "Quelle juridiction a ordonné le procès pour meurtre du policier dans l'affaire Nahel ?", c: ["La cour d'appel de Versailles", "Le Conseil constitutionnel", "Le tribunal de Nanterre", "Le Conseil d'État"], a: 0, x: "C'est la cour d'appel de Versailles qui a statué le 24 novembre." },
+        { t: 'qcm', q: "Devant quelle juridiction le policier sera-t-il jugé pour meurtre ?", c: ["La cour d'assises des Hauts-de-Seine", "Le tribunal correctionnel de Paris", "La Cour de justice de la République", "La cour d'assises du Rhône"], a: 0, x: "Une cour d'assises juge les crimes, dont le meurtre." },
+        { t: 'vf', q: "En mars, la cour d'appel avait déjà ordonné un procès pour meurtre.", a: false, x: "Elle avait requalifié les faits en violences ayant entraîné la mort sans intention de la donner, avant que la Cour de cassation n'annule cet arrêt." },
+        { t: 'qcm', q: "Quel est le rôle de la Cour de cassation ?", c: ["Elle vérifie que la loi a été bien appliquée, sans rejuger les faits", "Elle juge les crimes en première instance", "Elle contrôle la constitutionnalité des lois", "Elle juge les ministres"], a: 0, x: "Elle peut casser une décision, comme elle l'a fait avec l'arrêt de la cour d'appel." },
+        { t: 'order', q: "Remets dans l'ordre chronologique les étapes de l'affaire Nahel", items: ["Juin 2023 : Nahel est tué lors d'un contrôle routier à Nanterre", "Mars : la cour d'appel requalifie les faits en violences", "La Cour de cassation annule cet arrêt", "24 novembre : la cour d'appel de Versailles ordonne un procès pour meurtre"], x: "Les faits remontent à juin 2023 ; le dossier a ensuite fait plusieurs allers-retours judiciaires." },
+        { t: 'qcm', q: "Combien de parrainages faut-il recueillir pour être candidat à la présidentielle ?", c: ["500", "100", "250", "1 000"], a: 0, x: "Ces parrainages viennent d'élus, dont beaucoup de maires, d'où l'enjeu du congrès de l'AMF." },
+        { t: 'qcm', q: "Qui fait l'objet de protestations pour sa double candidature, à la présidentielle et à la présidence de l'AMF ?", c: ["David Lisnard", "Édouard Philippe", "Dominique de Villepin", "Jean-Luc Mélenchon"], a: 0, x: "David Lisnard est maire de Cannes." },
+        { t: 'vf', q: "Emmanuel Macron participera cette année au congrès des maires de France.", a: false, x: "Selon Libération, il n'ira pas, alors qu'il avait promis en 2017 de s'y rendre chaque année." },
+        { t: 'qcm', q: "Les épargnants ont retiré près de combien du Livret A depuis janvier ?", c: ["Près de 10 milliards d'euros", "Près de 1 milliard d'euros", "Près de 50 milliards d'euros", "Près de 100 millions d'euros"], a: 0, x: "C'est un record depuis dix ans pour Le Monde." },
+        { t: 'qcm', q: "Quel organisme consolide les données sur l'encours du Livret A ?", c: ["La Caisse des dépôts", "La Banque de France", "L'Insee", "La Cour des comptes"], a: 0, x: "Le Figaro précise que ces données sont consolidées depuis 2008." }
       ]
     },
     {
       title: 'Le tour du monde', icon: '🌍', desc: 'International et Europe', exercises: [
-        { t: 'qcm', q: 'De combien l\'action Nvidia a-t-elle bondi en Bourse après le retour de Jensen Huang ?', c: ['31 %', '3 %', '12 %', '50 %'], a: 0, x: 'Il avait été poussé à la démission le 12 novembre, avant d\'être réintégré lundi.' },
-        { t: 'qcm', q: 'De quel pays est la société Megaspeed, placée sur liste noire par Washington ?', c: ['Singapour', 'Taïwan', 'Corée du Sud', 'Malaisie'], a: 0, x: 'Elle est soupçonnée d\'avoir fourni des puces Nvidia à la Chine en contournant l\'embargo.' },
-        { t: 'vf', q: 'Les vidéos présentées sur les réseaux comme l\'attaque de Benghazi ont été prises en Grèce il y a plusieurs mois.', a: true, x: 'Ce sont d\'anciennes images détournées : un grand classique de l\'infox en temps de guerre.' },
-        { t: 'qcm', q: 'Quelle minorité la CIJ a-t-elle reconnue victime d\'un génocide commis par la Birmanie ?', c: ['Les Rohingya', 'Les Ouïghours', 'Les Karens', 'Les Kurdes'], a: 0, x: 'L\'arrêt date du 19 novembre. Quatorze pays, dont le Royaume-Uni, l\'Espagne, le Canada et l\'Australie, reconnaissent la décision.' },
-        { t: 'qcm', q: 'Quelle ville ukrainienne a été visée par des frappes russes dans la nuit, faisant au moins deux morts ?', c: ['Zaporijjia', 'Lviv', 'Tchernihiv', 'Poltava'], a: 0, x: 'Plus de 30 blessés ont été recensés, dont quatre mineurs.' },
-        { t: 'qcm', q: 'Quelle nationalité a le premier astronaute étranger à se rendre dans la station spatiale chinoise ?', c: ['Pakistanaise', 'Indienne', 'Russe', 'Brésilienne'], a: 0, x: 'Muhammad Zeeshan Ali dit emporter « les espoirs de 250 millions de Pakistanais ».' },
-        { t: 'match', q: 'Associe chaque pays à son actualité', pairs: [['Yémen', 'Frappes saoudiennes contre des autocars et des camions'], ['Iran', 'Flagellation de la chanteuse Parastoo Ahmadi'], ['Soudan', 'Frappe de drone contre un bâtiment de l\'ONU'], ['Colombie', 'Dix ans après l\'accord de paix avec les ex-FARC']], x: 'Quatre dossiers internationaux du moment, du Moyen-Orient à l\'Amérique latine.' },
-        { t: 'qcm', q: 'Que demande Antonio Guterres aux États membres de l\'ONU d\'ici l\'année prochaine ?', c: ['Un cadre multilatéral de gestion des risques liés à l\'IA', 'Un cessez-le-feu au Soudan', 'Une réforme du Conseil de sécurité', 'Un traité sur les océans'], a: 0, x: 'Il propose de commencer par des mesures de sécurité communes et un système d\'évaluation.' }
+        { t: 'qcm', q: "Dans quel port les deux navires russes ont-ils été visés ?", c: ["Benghazi, en Libye", "Tartous, en Syrie", "Odessa, en Ukraine", "Alexandrie, en Égypte"], a: 0, x: "L'attaque a eu lieu dimanche 22 novembre." },
+        { t: 'qcm', q: "Quelle arme a été utilisée contre les navires russes ?", c: ["Des drones navals", "Des missiles hypersoniques", "Des sous-marins", "Des avions de chasse"], a: 0, x: "Le New York Times parle d'une corvette coulée et d'un cargo touché." },
+        { t: 'vf', q: "Les autorités de l'Est libyen ont réclamé lundi à l'ONU une enquête sur la présence de forces ukrainiennes dans le pays.", a: true, x: "Elles visent la présence de forces ukrainiennes dans l'ouest du pays." },
+        { t: 'qcm', q: "Quel maréchal, parrainé par Moscou, tient Benghazi ?", c: ["Khalifa Haftar", "Mouammar Kadhafi", "Abdel Fattah al-Sissi", "Fayez al-Sarraj"], a: 0, x: "Il est décrit comme un officier dissident, soutenu par Moscou depuis près d'une décennie." },
+        { t: 'qcm', q: "De quoi la société singapourienne Megaspeed est-elle soupçonnée ?", c: ["D'avoir fourni des puces Nvidia à la Chine en contournant l'embargo", "D'avoir racheté Nvidia", "D'avoir espionné Jensen Huang", "D'avoir truqué les comptes de Nvidia"], a: 0, x: "Le ministère américain du Commerce l'a placée sur liste noire avec ses filiales." },
+        { t: 'qcm', q: "Où s'est tenue la COP31 ?", c: ["À Antalya, en Turquie", "À Belém, au Brésil", "À Dubaï, aux Émirats arabes unis", "À Glasgow, au Royaume-Uni"], a: 0, x: "La conférence s'achève sur un échec." },
+        { t: 'qcm', q: "Sur quel point central les pays réunis à la COP31 ont-ils échoué ?", c: ["Trouver un accord pour sortir des énergies fossiles", "Choisir la ville de la prochaine COP", "Protéger les océans", "Relancer le nucléaire"], a: 0, x: "La Chine accuse les pays occidentaux de la tenir pour responsable." },
+        { t: 'qcm', q: "Selon l'ONU, combien de femmes et de filles ont été tuées par des proches dans le monde en 2025 ?", c: ["Quelque 47 000", "Quelque 4 700", "Quelque 470 000", "Quelque 12 000"], a: 0, x: "Cela représente environ cinq victimes par heure." },
+        { t: 'match', q: "Associe chaque nom à l'actualité qui le concerne", pairs: [["Péter Magyar", "Attendu chez Zelensky en Transcarpatie"], ["Parastoo Ahmadi", "74 coups de fouet en Iran pour un concert sans voile"], ["Khalifa Haftar", "Fief de Benghazi, parrainé par Moscou"], ["Megaspeed", "Société singapourienne placée sur liste noire américaine"]], x: "Quatre actualités internationales du jour à ne pas confondre." }
       ]
     },
     {
       title: 'Médias & atelier', icon: '🎙️', desc: 'Médias + écriture', exercises: [
-        { t: 'qcm', q: 'Sur quoi l\'Arcom alerte-t-elle ?', c: ['Un niveau « préoccupant » et « inédit » d\'agressions visant des journalistes', 'La baisse des audiences de la radio', 'La fin de la TNT', 'Le coût de l\'audiovisuel public'], a: 0, x: 'Des dizaines de journalistes ont été blessés depuis le début des mobilisations. C\'est un sujet à relier à la liberté de la presse.' },
-        { t: 'qcm', q: 'Quel magazine de défense des consommateurs passe sous pavillon de Xavier Niel ?', c: ['60 millions de consommateurs', 'Que Choisir', 'Capital', 'Challenges'], a: 0, x: 'L\'offre a été validée par l\'État : vingt-neuf salariés conservent leur emploi, une vingtaine seront licenciés.' },
-        { t: 'qcm', q: 'De quelle année date la directive européenne à l\'origine des droits voisins ?', c: ['2019', '2009', '2014', '2022'], a: 0, x: 'Ces droits permettent aux éditeurs et aux agences d\'être rémunérés quand Google ou Meta utilisent leurs contenus. Le Parlement vient d\'adopter définitivement une loi pour mieux les faire appliquer.' },
-        { t: 'vf', q: 'Pour la présidentielle 2027, les influenceurs et podcasteurs qui reçoivent des politiques devront respecter des règles de temps de parole et de déontologie.', a: true, x: 'L\'Arcom l\'a annoncé jeudi 19 novembre : les créateurs de contenu sont désormais traités comme les télévisions et les radios.' },
-        { t: 'qcm', q: 'Que s\'est-il passé pour la chaîne d\'opposition turque Sözcü TV ?', c: ['Un administrateur nommé par le gouvernement a été placé à sa tête', 'Elle a été rachetée par un groupe européen', 'Elle a remporté un prix de journalisme', 'Elle a déménagé à Berlin'], a: 0, x: 'Ses bureaux ont été perquisitionnés et plusieurs dirigeants arrêtés. Des milliers de personnes ont manifesté à Istanbul.' },
-        { t: 'order', q: 'Remets dans l\'ordre les étapes de la vérification d\'une vidéo virale', items: ['Retrouver la première publication', 'Faire une recherche d\'image inversée', 'Géolocaliser et dater la scène', 'Contacter l\'auteur ou des témoins', 'Publier en expliquant la méthode'], x: 'On remonte à la source, on recoupe, on situe, on confirme, puis on publie de façon transparente.' },
-        { t: 'write', q: 'Titre cette dépêche (12 mots maximum)', src: 'Le groupe pharmaceutique français Sanofi va racheter l\'américain Insmed pour 37,6 milliards d\'euros. La transaction, l\'une des plus grosses acquisitions réalisées par Sanofi, devrait être finalisée au premier semestre 2027.', model: 'Sanofi rachète l\'américain Insmed pour 37,6 milliards d\'euros', crit: ['12 mots maximum', 'L\'information principale (le rachat) est claire', 'Le montant ou l\'acteur clé apparaît', 'Un verbe d\'action au présent'] },
-        { t: 'write', q: 'Rédige l\'attaque (première phrase) d\'un article sur le retour de Jensen Huang chez Nvidia', src: 'Faits : Jensen Huang avait démissionné le 12 novembre après la révélation d\'une relation avec une femme soupçonnée de transmettre des informations aux services secrets chinois · le conseil d\'administration l\'a réintégré lundi · l\'action Nvidia a bondi de 31 % · Donald Trump avait appelé à son retour.', model: 'Dix jours après avoir démissionné à la suite d\'un scandale d\'espionnage présumé, Jensen Huang a été réintégré lundi à la tête de Nvidia, dont l\'action a aussitôt bondi de 31 %.', crit: ['L\'information principale (la réintégration) figure dans la phrase', 'Le contexte (la démission et le scandale) est rappelé', 'Une seule phrase, qui reste lisible', 'Ton factuel, sans opinion'] }
+        { t: 'qcm', q: "Qu'est-ce qu'une revue de presse ?", c: ["Un texte qui compare comment plusieurs médias traitent un même sujet", "Un communiqué officiel d'une entreprise", "Un sondage d'audience", "Un droit de réponse"], a: 0, x: "Le Temps en publie une sur le retour de Jensen Huang." },
+        { t: 'qcm', q: "Quel titre parle d'« un triomphe de l'argent sur la morale » ?", c: ["Courrier international", "Le Temps", "Libération", "Ouest-France"], a: 0, x: "Courrier international souligne que ce retour ne fait pas l'unanimité." },
+        { t: 'qcm', q: "Quel titre relaie l'expression « un dangereux précédent » acté par « une bande d'incompétents » ?", c: ["Le Temps", "Courrier international", "Le Figaro", "Euronews"], a: 0, x: "C'est la revue de presse du Temps, qui évoque une capitulation face à Trump et aux investisseurs." },
+        { t: 'vf', q: "Selon Courrier international, les employés de Nvidia et les marchés financiers se réjouissent du retour de Jensen Huang, alors que des parlementaires, y compris républicains, le déplorent.", a: true, x: "Le retour de Huang ne fait donc pas l'unanimité." },
+        { t: 'qcm', q: "Deux médias présentent un même chiffre différemment (Le Monde : record depuis dix ans ; Le Figaro : depuis 2008). Que faire ?", c: ["On signale la divergence ou on ne garde que ce qui est commun", "Choisir le chiffre le plus spectaculaire", "Faire la moyenne des deux", "Ne citer qu'un seul média sans le préciser"], a: 0, x: "C'est la règle du recoupement : on reste fidèle aux faits partagés par les sources." },
+        { t: 'match', q: "Associe chaque média à son information du jour", pairs: [["Le Temps", "Relaie l'expression « un dangereux précédent » à propos de Nvidia"], ["Courrier international", "Titre sur « un triomphe de l'argent sur la morale »"], ["Le Figaro", "Détaille la pire année du Livret A depuis 2008"], ["Libération", "Annonce que Macron n'ira pas au congrès des maires"]], x: "Chaque média apporte un angle différent sur l'actualité du jour." },
+        { t: 'write', q: "Titre cette dépêche (12 mots maximum)", src: "La cour d'appel de Versailles a ordonné mardi que le policier qui a tué Nahel Merzouk, 17 ans, lors d'un contrôle routier à Nanterre en juin 2023, soit jugé pour meurtre devant la cour d'assises des Hauts-de-Seine. En mars, la cour d'appel avait requalifié les faits en violences ayant entraîné la mort sans intention de la donner, mais la Cour de cassation avait annulé cet arrêt.", model: "Mort de Nahel : le policier sera jugé pour meurtre aux assises", crit: ["12 mots maximum", "L'information principale (procès pour meurtre) est claire", "Le nom de Nahel ou de l'affaire apparaît", "Un titre factuel, sans opinion"] },
+        { t: 'write', q: "Rédige l'attaque (première phrase) d'un article sur les féminicides dans le monde", src: "Faits : 47 000 femmes et filles tuées par des proches en 2025 dans le monde, selon l'ONU · soit environ cinq par heure · chiffre stable depuis plusieurs années, entre 45 000 et 51 000 victimes · 60 % des femmes victimes d'homicide tuées dans la sphère privée, contre 11 % des hommes.", model: "Environ cinq femmes ou filles sont tuées chaque heure par un proche dans le monde : 47 000 victimes en 2025, selon l'ONU, un chiffre qui ne baisse pas.", crit: ["L'information principale (47 000 victimes) figure dans la phrase", "La source (l'ONU) est citée", "Une seule phrase, qui reste lisible", "Ton factuel, sans opinion"] }
       ]
     }
   ]
