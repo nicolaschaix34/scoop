@@ -1,7 +1,7 @@
 /* Scoop — service worker : appli installable + hors ligne
    - éditions (data/days/*) : réseau d'abord (pour avoir l'actu fraîche), cache en secours
-   - reste de l'appli : cache d'abord, mis à jour en arrière-plan */
-const VERSION = 'scoop-v1';
+   - reste de l'appli : réseau d'abord aussi, cache en secours hors ligne */
+const VERSION = 'scoop-v2';
 const SHELL = [
   './', './index.html', './css/style.css', './js/app.js', './data/units.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'
@@ -42,12 +42,9 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Coquille de l'appli : cache d'abord, rafraîchie en arrière-plan
-  e.respondWith(caches.match(req, { ignoreSearch: true }).then(hit => {
-    const net = fetch(req).then(res => {
-      if (res.ok) { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); }
-      return res;
-    }).catch(() => hit);
-    return hit || net;
-  }));
+  // Coquille de l'appli : réseau d'abord (toujours à jour), cache si hors ligne
+  e.respondWith(fetch(req).then(res => {
+    if (res.ok) { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); }
+    return res;
+  }).catch(() => caches.match(req, { ignoreSearch: true })));
 });

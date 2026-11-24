@@ -9,7 +9,7 @@
   // ---------- Utilitaires ----------
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const rich = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/\*(.+?)\*/g, '<i>$1</i>');
   const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -398,6 +398,7 @@
       default: html = viewHome();
     }
     el.innerHTML = (view === 'home' || view === 'profile' ? '<div data-install-slot></div>' : '') + html;
+    window.__scoopReady = true;
     refreshInstall();
     if (view === 'profile') bindProfile();
     window.scrollTo(0, 0);
@@ -412,7 +413,8 @@
       <h2>${esc(u.icon)} ${esc(u.title)}</h2>
       <ul>${(u.guide || []).map(g => `<li>${rich(g)}</li>`).join('')}</ul>
       <button class="btn primary block" data-close>Compris</button>`;
-    $('#modal').showModal();
+    const m = $('#modal');
+    if (typeof m.showModal === 'function') m.showModal(); else m.setAttribute('open', ''); // vieux navigateurs
   }
 
   // ---------- Délégation des clics ----------
@@ -421,7 +423,7 @@
     if (s && !s.disabled) { e.preventDefault(); startLesson(s.dataset.start); return; }
     const g = e.target.closest('[data-guide]');
     if (g) { openGuide(g.dataset.guide); return; }
-    if (e.target.closest('[data-close]') || e.target === $('#modal')) $('#modal').close();
+    if (e.target.closest('[data-close]') || e.target === $('#modal')) { const m = $('#modal'); if (typeof m.close === 'function') m.close(); else m.removeAttribute('open'); }
   });
 
   // =========================================================

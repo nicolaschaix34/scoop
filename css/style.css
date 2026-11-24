@@ -365,6 +365,19 @@ p { margin: 0; }
 
 #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 100; width: 100vw; height: 100vh; }
 
+/* ---------- Navigateurs anciens (sans color-mix : iOS < 16.2, Chrome < 111) ---------- */
+@supports not (color: color-mix(in srgb, red 50%, blue)) {
+  .topbar { background: var(--paper); }
+  .nav-link.active { border-color: var(--red); }
+  .choice.sel, .tile.sel { background: var(--paper-2); box-shadow: inset 0 0 0 2px var(--blue); }
+  .unit-head { box-shadow: 0 5px 0 rgba(0,0,0,.25); }
+  .node { box-shadow: 0 7px 0 rgba(0,0,0,.25); }
+  .node:active:not(:disabled) { box-shadow: 0 2px 0 rgba(0,0,0,.25); }
+  .node.current::after { border-color: rgba(0,0,0,.15); }
+  .tag { background: var(--paper-2); }
+  .word p { color: var(--paper); opacity: .85; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
